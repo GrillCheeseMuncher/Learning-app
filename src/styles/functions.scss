@@ -1,0 +1,17 @@
+/*
+ * FLUID FONTS
+*/
+// $minFontSize $maxFontSize - base rem values must be given in absolute units
+// $minViewport, $maxViewport - base px values must be given in absolute units
+@function fontClamp($minFontSize, $maxFontSize, $minViewport: 320, $maxViewport: 1920) {
+  $rem: rem;
+  $vw: vw;
+  $slope: ($maxFontSize - $minFontSize) / ($maxViewport - $minViewport);
+  $yIntersection: (-$minViewport * $slope + $minFontSize) + $rem;
+
+  @return clamp(
+    $minFontSize + $rem,
+    $yIntersection unquote('+') $slope * 1000 + $vw,
+    $maxFontSize + $rem
+  );
+}
