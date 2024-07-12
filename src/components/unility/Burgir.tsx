@@ -1,12 +1,9 @@
-import { useState } from 'react';
+interface BurgirProps {
+  isClicked: boolean;
+  handleClick: () => void;
+}
 
-export const Burgir = () => {
-
-    const [isClicked, setIsClicked] = useState(false);
-
-    const handleClick = () => {
-      setIsClicked(!isClicked);
-    };
+export const Burgir = ({ isClicked, handleClick }: BurgirProps) => {
 
   return (
     <div className={`burgir ${isClicked ? 'clicked' : ''}`} onClick={handleClick}>
