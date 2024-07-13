@@ -1,1 +1,54 @@
 @import './styles/mixins.scss';
+
+$blue: #b2c2d6;
+$dark-blue: darken($blue, 20%);
+
+.loader {
+    width: 60px;
+    height: 60px;
+    border: 5px solid var(--blue);
+    border-radius: 50px;
+    border-left-color: transparent;
+    animation: loader 2s infinite;
+}
+
+.loader-smol {
+    margin: 5px;
+    width: 40px;
+    height: 40px;
+    border: 5px solid $dark-blue;
+    border-radius: 50px;
+    border-right-color: transparent;
+    animation: loader 2s infinite;
+}
+
+.guzior {
+    cursor: pointer;
+    padding: 1.75rem 4rem;
+    border: 6px solid var(--blue);
+    border-radius: 50px;
+    box-shadow: 0px 8px $dark-blue;
+    background-color: var(--dark);
+    font-size: 2rem;
+    font-family: var(--font-primary);
+    font-weight: var(--font-primary-weight);
+    color: var(--blue);
+}
+
+
+.guzior:active {
+    position: relative;
+    top: 8px;
+    border: 6px solid var(--blue);
+    box-shadow: 0px 0px;
+}
+
+@keyframes loader {
+    0% {
+      transform: rotate(0);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
