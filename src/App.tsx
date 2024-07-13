@@ -1,11 +1,10 @@
 import './App.scss';
-import { Burgir } from './components/unility/Burgir';
+import { Header } from './components/Header/Header';
 
 function App() {
-
   return (
     <div className="App">
-      <Burgir />
+      <Header />
     </div>
   );
 }

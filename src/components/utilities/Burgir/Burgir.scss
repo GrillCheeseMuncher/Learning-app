@@ -1,0 +1,44 @@
+@import '../../../styles/mixins.scss';
+
+.burgir {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem 2rem;
+  transition: 0.75s;
+  cursor: pointer;
+
+  @include respond(tab-land) {
+    display: none;
+  }
+
+  .krecha_up,
+  .krecha,
+  .krecha_down {
+    margin: 6px 0;
+    width: 60px;
+    height: 6px;
+    background-color: var(--blue);
+    border-radius: 10px;
+    transition: 0.5s;
+  }
+
+  &.clicked {
+    transition: 0.75s;
+    padding: 1rem 1rem;
+
+    .krecha_up {
+      transform: translate(0px, 18px) rotate(45deg);
+      background-color: var(--orange);
+    }
+
+    .krecha {
+      opacity: 0;
+    }
+
+    .krecha_down {
+      transform: translate(0px, -18px) rotate(-45deg);
+      background-color: var(--orange);
+    }
+  }
+}
