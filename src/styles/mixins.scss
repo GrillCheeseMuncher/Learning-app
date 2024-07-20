@@ -1,0 +1,32 @@
+/*
+ * MEDIA QUERIES
+*/
+// - tab-port ------> 600px
+// - tab-land ------> 900px
+// - laptop   ------> 1200px
+// - pc   ------> 1440px
+// 1em = 16px
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == tab-port {
+    @media only screen and (min-width: 37.5em) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-land {
+    @media only screen and (min-width: 56.25em) {
+      @content;
+    }
+  }
+  @if $breakpoint == laptop {
+    @media only screen and (min-width: 75em) {
+      @content;
+    }
+  }
+  @if $breakpoint == pc {
+    //tu zmieniłem bo się gryzło z tym screen w media only screen
+    @media only screen and (min-width: 90em) {
+      @content;
+    }
+  }
+}
