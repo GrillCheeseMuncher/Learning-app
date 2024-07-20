@@ -1,17 +1,17 @@
 import { useState } from 'react';
-import './RegisterModal.scss';
+import './Login.scss';
 import { Button } from '../../utilities/Button/Button';
 
-interface RegisterModalProps {
-  onShowLogin: () => void;
-  onClose: () => void;
-}
-
-export const RegisterModal = ({ onShowLogin, onClose }: RegisterModalProps) => {
+export const Login = () => {
+  const [isRegister, setIsRegister] = useState<boolean>(false);
   const [isLockOpen, setIsLockOpen] = useState<boolean>(false);
   const [inputPasswordType, setInputPasswordType] = useState<string>('password');
   const [userName, setUserName] = useState<string>('');
   const [userPassword, setUserPassword] = useState<string>('');
+
+  const handleModalTypeChange = () => {
+    setIsRegister(() => !isRegister);
+  };
 
   const handleLockClick = () => {
     setIsLockOpen((isLockOpen) => !isLockOpen);
@@ -25,6 +25,24 @@ export const RegisterModal = ({ onShowLogin, onClose }: RegisterModalProps) => {
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserPassword(e.target.value);
   };
+
+  const LoginLink = () => (
+    <span className="modal-span">
+      Already have an account?{' '}
+      <span className="modal-link-switch " onClick={handleModalTypeChange}>
+        Sign in
+      </span>
+    </span>
+  );
+
+  const RegisterLink = () => (
+    <span className="modal-span">
+      Don't have an account?{' '}
+      <span className="modal-link-switch " onClick={handleModalTypeChange}>
+        Sign up
+      </span>
+    </span>
+  );
 
   return (
     <div className="login-modal">
@@ -48,14 +66,15 @@ export const RegisterModal = ({ onShowLogin, onClose }: RegisterModalProps) => {
             {isLockOpen ? String.fromCodePoint(0x0001f513) : String.fromCodePoint(0x0001f512)}
           </button>
         </div>
-        <input className="password input" type={inputPasswordType} placeholder="confirm password" />
-        <Button text="Register" />
-        <span className="register-span">
-          Already have an account?{' '}
-          <span className="login-acc" onClick={onShowLogin}>
-            Sign in
-          </span>
-        </span>
+        {isRegister && (
+          <input
+            className="password input"
+            type={inputPasswordType}
+            placeholder="confirm password"
+          />
+        )}
+        <Button text={isRegister ? 'Register' : 'Login'} />
+        {isRegister ? <LoginLink /> : <RegisterLink />}
       </div>
     </div>
   );

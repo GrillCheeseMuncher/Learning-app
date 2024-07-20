@@ -1,7 +1,6 @@
 import './App.scss';
 import { Header } from './components/Header/Header';
-import { LoginModal } from './components/Modals/LoginModal/LoginModal';
-import { RegisterModal } from './components/Modals/RegisterModal/RegisterModal';
+import { Login } from './components/Modals/Login/Login';
 import { useState } from 'react';
 
 function App() {
@@ -18,19 +17,9 @@ function App() {
     setShowRegisterModal(true);
   };
 
-  const handleCloseModals = () => {
-    setShowLoginModal(false);
-    setShowRegisterModal(false);
-  };
-
   return (
     <div className="App">
-      {showLoginModal && (
-        <LoginModal onShowRegister={handleShowRegister} onClose={handleCloseModals} />
-      )}
-      {showRegisterModal && (
-        <RegisterModal onShowLogin={handleShowLogin} onClose={handleCloseModals} />
-      )}
+      <Login />
       <Header />
     </div>
   );
