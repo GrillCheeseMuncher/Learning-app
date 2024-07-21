@@ -1,18 +1,61 @@
 .guzior {
+  margin-top: 10px;
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
   cursor: pointer;
-  padding: 1rem 2rem;
-  border: 2px solid var(--blue);
-  border-radius: 5px;
-  box-shadow: 0 1px 1px 0 var(--blue), 0 3px 2px 1px var(--dark);
-  background-color: var(--dark);
-  font-size: 2rem;
-  font-family: var(--font-secondary);
-  color: var(--blue);
-  transform: translate(0, 0);
-}
+  outline-offset: 4px;
+  transition: filter 250ms;
+  user-select: none;
+  touch-action: manipulation;
 
-.guzior:active {
-  transform: translate(0, 4px);
-  border: 2px solid var(--blue);
-  box-shadow: 0px 0px 1px 1px var(--dark);
-}
+  .guzior-3d {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: linear-gradient(to left,hsl(340 100% 16%) 0%,hsl(340 100% 32%) 8%,hsl(340 100% 32%) 92%,hsl(340 100% 16%) 100%);
+   }
+   
+   .front {
+    display: block;
+    position: relative;
+    padding: 12px 50px;
+    border-radius: 12px;
+    font-size: 2rem;
+    color: white;
+    background: hsl(345 100% 47%);
+    will-change: transform;
+    transform: translateY(-4px);
+    transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+    font-family: var(--font-secondary);
+   }
+
+   &:hover {
+    filter: brightness(110%);
+   }
+   
+   &:hover .front {
+    transform: translateY(-6px);
+    transition: transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+   }
+   
+   &:active .front {
+    transform: translateY(-2px);
+    transition: transform 34ms;
+   }
+   
+   &:hover .shadow {
+    transform: translateY(4px);
+    transition: transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+   }
+   
+   &:active .shadow {
+    transform: translateY(1px);
+    transition: transform 34ms;
+   }
+ }
+  

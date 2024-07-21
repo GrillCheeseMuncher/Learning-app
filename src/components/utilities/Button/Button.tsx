@@ -5,5 +5,10 @@ interface ButtonProps {
 }
 
 export const Button = ({ text }: ButtonProps) => {
-  return <button className="guzior">{text}</button>;
+  return (
+    <button className="guzior">
+      <span className="guzior-3d"></span>
+      <span className="front">{text}</span>
+    </button>
+  );
 };

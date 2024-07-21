@@ -50,7 +50,7 @@ export const Login = () => {
         <input
           className="username input"
           type="email"
-          placeholder="type email"
+          placeholder=" Email"
           value={userName}
           onChange={handleNameChange}
         />
@@ -58,7 +58,7 @@ export const Login = () => {
           <input
             className="password input"
             type={inputPasswordType}
-            placeholder="type password"
+            placeholder=" Password"
             value={userPassword}
             onChange={handlePasswordChange}
           />
@@ -70,7 +70,7 @@ export const Login = () => {
           <input
             className="password input"
             type={inputPasswordType}
-            placeholder="confirm password"
+            placeholder=" Confirm password"
           />
         )}
         <Button text={isRegister ? 'Register' : 'Login'} />

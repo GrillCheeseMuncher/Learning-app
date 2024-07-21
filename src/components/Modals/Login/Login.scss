@@ -20,7 +20,7 @@
     width: fit-content;
     min-width: 80vw;
     border-radius: 5px;
-    background-color: var(--dark);
+    background-color: var(--darkviolet);
     padding: 15px;
 
     @include respond(tab-land) {
@@ -28,24 +28,26 @@
     }
 
     .input {
-      width: 256px;
-      min-width: 200px;
-      height: 50px;
       margin: 20px 0;
-      font-size: 2rem;
-      font-family: var(--font-secondary);
-      border-radius: 2px;
       padding: 0px 4px;
-      border: solid var(--blue) 3px;
+      width: 356px;
+      min-width: 300px;
+      height: 50px;
+      font-size: 2rem;
+      background-color: #fff;
+      font-family: var(--font-primary);
+      color: var(--dark);
+      border: solid var(--violet) 3px;
+      border-radius: 5px;
     }
 
     .password-wrapper {
       display: flex;
-      width: 264px;
-      min-width: 200px;
+      width: 364px;
+      min-width: 300px;
 
       .password {
-        border-radius: 2px 0px 0px 2px;
+        border-radius: 5px 0px 0px 5px;
         border-right: none;
       }
 
@@ -56,21 +58,21 @@
         border: 0px;
         margin: 20px 0;
         width: 60px;
-        border-radius: 0px 2px 2px 0px;
-        border: solid var(--blue) 3px;
+        border-radius: 0px 5px 5px 0px;
+        border: solid var(--violet) 3px;
         border-left: none;
       }
     }
 
     .modal-span {
-      font-size: 1.5rem;
-      margin-top: 3rem;
+      font-size: 1.7rem;
+      margin-top: 3.5rem;
       font-family: var(--font-secondary);
       color: #fff;
 
       .modal-link-switch {
         cursor: pointer;
-        color: var(--blue);
+        color: var(--red);
       }
     }
   }

@@ -1,0 +1,20 @@
+@import '../../styles/mixins.scss';
+.pokelist {
+  --header-mobile-margin: 86px;
+
+  margin-top: var(--header-mobile-margin);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: var(--dark);
+  color: white;
+  font-size: 5rem;
+  font-family: var(--font-secondary);
+  max-height: calc(100vh - var(--header-mobile-margin));
+  overflow-y: scroll;
+
+  @include respond(tab-land) {
+    --header-mobile-margin: 205.75px;
+  }
+}
