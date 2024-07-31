@@ -24,6 +24,12 @@ export const Pokelist = ({ pokedex, setPokedex }: PokelistProps) => {
         item.name?.toLocaleLowerCase().includes(pokemonName.toLocaleLowerCase())
       );
       setPokemonList(pokemonListFilter);
+
+      pokemonList.map((pokemon) => (
+        <li key={pokemon.name} className="pokelist-items">
+          {capitalizeFirstLetter(pokemon.name)}
+        </li>
+      ));
     }
   }, [pokemonName, pokedex]);
 
@@ -59,13 +65,7 @@ export const Pokelist = ({ pokedex, setPokedex }: PokelistProps) => {
           <FilterButton handleLetterSort={handleLetterSort} handleNumberSort={handleNumberSort} />
         </div>
         <div className="pokelist-grid-container">
-          <div className="pokelist-grid">
-            {pokemonList.map((pokemon) => (
-              <li key={pokemon.name} className="pokelist-items">
-                {capitalizeFirstLetter(pokemon.name)}
-              </li>
-            ))}
-          </div>
+          <div className="pokelist-grid">{pokemonList}</div>
         </div>
       </div>
       <div className="pokelist-right">
