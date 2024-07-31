@@ -1,0 +1,47 @@
+.pokelist-dropdown {
+  position: relative;
+
+  .pokelist-filter-button {
+    width: 80px;
+    height: 80px;
+    border-radius: 2rem;
+    background-color: #ececec;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &:hover {
+      border: 2.5px solid var(--red);
+    }
+
+    &:active {
+      border: 2.5px solid var(--red);
+    }
+
+    .pokelist-filter-svg {
+      padding-top: 4px;
+      height: 5rem;
+      fill: #505050;
+    }
+  }
+
+  .pokelist-dropdown-content {
+    display: none;
+
+    &.show {
+      display: block;
+      position: absolute;
+
+      border-radius: 2rem;
+    }
+
+    .pokelist-filter-button-dropdown {
+      margin-top: 1rem;
+      display: block;
+      font-size: 3.5rem;
+      color: #505050;
+      font-family: var(--font-primary);
+    }
+  }
+}

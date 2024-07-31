@@ -16,7 +16,7 @@ export const Header = () => {
   const [isClicked, setIsClicked] = useState(false);
   const [currentListId, setCurrentListId] = useState<number>(1);
 
-  const handleBurgerClick = () => {
+  const handleClick = () => {
     setIsClicked(!isClicked);
   };
 
@@ -40,7 +40,7 @@ export const Header = () => {
     <header className="header">
       <div className="title_wrapper">
         <div className="title">Pokedex</div>
-        <Burgir isClicked={isClicked} handleClick={handleBurgerClick} />
+        <Burgir isBurgirClicked={isClicked} handleBurgirClick={handleClick} />
       </div>
       <nav className={`menu${isClicked ? ' show' : ''}`}>{list}</nav>
     </header>

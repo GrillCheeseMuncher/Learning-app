@@ -9,3 +9,7 @@ export interface PokedexPokemon {
   name: string;
   url: string;
 }
+
+export interface PokedexIndexPokemon extends PokedexPokemon {
+  id: number;
+}

@@ -1,13 +1,13 @@
 import './Burgir.scss';
 
 interface BurgirProps {
-  isClicked: boolean;
-  handleClick: () => void;
+  isBurgirClicked: boolean;
+  handleBurgirClick: () => void;
 }
 
-export const Burgir = ({ isClicked, handleClick }: BurgirProps) => {
+export const Burgir = ({ isBurgirClicked, handleBurgirClick }: BurgirProps) => {
   return (
-    <div className={`burgir ${isClicked ? 'clicked' : ''}`} onClick={handleClick}>
+    <div className={`burgir ${isBurgirClicked ? 'clicked' : ''}`} onClick={handleBurgirClick}>
       <div className="krecha-up"></div>
       <div className="krecha"></div>
       <div className="krecha-down"></div>
