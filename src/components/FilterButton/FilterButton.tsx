@@ -25,6 +25,10 @@ const FilterButton = ({ handleLetterSort, handleNumberSort }: Props) => {
     handleNumberSort(!isNumberSorted);
   };
 
+  const alphabeticalOrder = isLetterSorted ? 'A-Z' : 'Z-A';
+
+  const numberOrder = isNumberSorted ? '1-0' : '0-1';
+
   return (
     <div className="pokelist-dropdown">
       <button className="pokelist-filter-button" onClick={handleClick}>
@@ -37,13 +41,13 @@ const FilterButton = ({ handleLetterSort, handleNumberSort }: Props) => {
           className="pokelist-filter-button pokelist-filter-button-dropdown"
           onClick={pokeLetterSort}
         >
-          A-Z
+          {alphabeticalOrder}
         </button>
         <button
           className="pokelist-filter-button pokelist-filter-button-dropdown"
           onClick={pokeNumberSort}
         >
-          0-1
+          {numberOrder}
         </button>
       </div>
     </div>

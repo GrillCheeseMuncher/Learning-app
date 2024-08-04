@@ -9,7 +9,6 @@ import { pokedex_mapper } from './API/mappers';
 
 function App() {
   const [pokedex, setPokedex] = useState<PokedexIndexPokemon[]>([]);
-  console.log(pokedex);
 
   useEffect(() => {
     fetch_pokedex().then((res) => {

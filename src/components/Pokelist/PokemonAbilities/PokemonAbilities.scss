@@ -1,0 +1,54 @@
+.pokelist-description-right-container-abilities {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  font-size: 3rem;
+  height: 100px;
+  width: 100%;
+  border-radius: 10px;
+  background-color: var(--violet);
+  color: var(--darkviolet);
+  font-weight: 600;
+  padding: 10px 0;
+
+  .pokelist-abilities-additional-text {
+    text-align: center;
+    width: calc(100% - 40px);
+    border-bottom: solid 2px var(--darkviolet);
+    padding-bottom: 5px;
+  }
+
+  .pokelist-abilities-in-container {
+    list-style: none;
+    display: inline-flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: calc(100% - 50px);
+    height: 100%;
+    padding: 5px 5px;
+    margin: 0 4px;
+    border-radius: 5px;
+
+    .pokelist-each-ability {
+      font-size: 2rem;
+      text-align: center;
+      background-color: var(--violet);
+      border: solid 2px var(--darkviolet);
+      padding: 5px 20px;
+      border-radius: 10px;
+
+      &.three {
+        width: 200px;
+        padding: 5px;
+
+        &.hidden {
+          color: lighten(#4d455f, 10);
+          border: dashed 2px lighten(#4d455f, 10);
+        }
+      }
+    }
+  }
+}

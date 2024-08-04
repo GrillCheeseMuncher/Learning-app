@@ -16,6 +16,12 @@
     padding: 24px;
     cursor: pointer;
   }
+
+  &.active {
+    background-color: var(--dark);
+    color: var(--red);
+    border: 2.5px solid var(--red);
+  }
 }
 
 .pokelist-container {
@@ -27,7 +33,7 @@
   width: 100%;
   background-color: var(--dark);
   height: calc(100vh - var(--header-mobile-margin));
-  scrollbar-color: var(--violet) var(--darkviolet);
+  // scrollbar-color: ;
 
   @include respond(tab-land) {
     --header-mobile-margin: 205.75px;
@@ -38,70 +44,21 @@
     display: flex;
     flex-direction: column;
 
-    .pokelist-search {
-      position: sticky;
-      top: 0;
-      line-height: 28px;
-      padding: 1.5rem;
-      align-items: center;
-      max-width: 100%;
-      display: flex;
-      justify-content: space-between;
-      z-index: 1;
-
-      @include respond(tab-land) {
-        padding: 3rem;
-        padding-right: 0;
-      }
-
-      .pokelist-search-bar {
-        width: 80.75%;
-        height: 80px;
-        line-height: 28px;
-        padding-left: 2.5rem;
-        border: 2px solid transparent;
-        border-radius: 2rem;
-        background-color: #ececec;
-        color: #0d0c22;
-        transition: 0.3s ease;
-        font-size: 2.5rem;
-        padding: 0 1rem;
-
-        @include respond(tab-land) {
-          font-size: 3rem;
-          width: 77.5%;
-        }
-
-        &::placeholder {
-          color: #969696;
-          font-size: 2.5rem;
-
-          @include respond(tab-land) {
-            font-size: 3rem;
-          }
-        }
-
-        &:focus {
-          outline: none;
-          border: 2.5px solid var(--red);
-        }
-
-        &::-webkit-search-cancel-button {
-          -webkit-appearance: none;
-          height: 3.5rem;
-          width: 3.5rem;
-          margin-left: 1rem;
-          background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" width="24px" height="24px" fill="currentColor" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M18 6L6 18M6 6l12 12" stroke="%23636363" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3E%3C/path%3E%3C/svg%3E');
-          background-size: contain;
-          background-repeat: no-repeat;
-          cursor: pointer;
-        }
-      }
-    }
     .pokelist-grid-container {
       position: relative;
       flex: 1;
       overflow-y: auto;
+      &::-webkit-scrollbar {
+        width: 1rem;
+      }
+      &::-webkit-scrollbar-track {
+        background: var(--darkviolet);
+        border-radius: 5px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: var(--red);
+        border-radius: 5px;
+      }
 
       .pokelist-grid {
         display: grid;
@@ -128,56 +85,134 @@
     display: none;
     align-items: center;
     justify-content: center;
+    position: relative;
     width: 100%;
-    height: 713.25px;
+    margin: 3rem;
 
     @include respond(tab-land) {
       display: flex;
     }
 
     .pokelist-description {
-      margin: 3rem;
-      padding: 1rem;
+      display: flex;
       background-color: var(--darkviolet);
-      width: 100%;
-      height: calc(100% - 90px);
-      position: sticky;
+      position: absolute;
+      width: calc(100% - 2rem);
+      height: calc(100% - 2rem);
+      padding: 1rem;
       top: 0;
+      left: 0.5rem;
+      overflow-y: scroll;
       border-radius: 2rem;
       border: 2.5px solid var(--violet);
 
-      .pokelist-description-header {
-        height: calc(30% - 40px);
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .pokelist-description-left-container {
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 20px;
-        padding-bottom: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 10px;
 
         .pokelist-description-image {
-          width: 150px;
-          height: 150px;
+          width: 300px;
+          height: 300px;
           background-color: var(--violet);
+          border-radius: 10px;
         }
 
         .pokelist-description-information {
           background-color: var(--violet);
-          width: calc(100% - 170px);
-          height: 150px;
+          margin-top: 20px;
+          width: calc(100% - 20px);
+          height: fit-content;
+          border-radius: 10px;
+          padding: 10px;
+
+          .pokemon-name {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+            text-align: center;
+            padding-bottom: 5px;
+            color: var(--darkviolet);
+            border-bottom: solid 2px var(--darkviolet);
+            font-weight: 600;
+            height: 57.5px;
+          }
         }
       }
 
-      .pokelist-description-abilities {
-        height: calc(70% - 20px);
+      .pokelist-description-right-container {
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 20px;
+        flex-direction: column;
+        width: calc(100% - 3rem);
+        height: calc(100% - 2rem);
+        margin: 10px;
+        border-radius: 10px;
 
-        .pokelist-description-moves {
+        .pokelist-description-right-container-base-stats {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          align-items: center;
+          margin-top: 20px;
+          font-size: 2rem;
+          height: fit-content;
+          width: calc(100% - 20px);
+          border-radius: 10px;
           background-color: var(--violet);
-          width: 100%;
-          height: 100%;
+          color: var(--darkviolet);
+          font-weight: 600;
+          padding: 10px;
+
+          .pokelist-base-stats-additional-text {
+            text-align: center;
+            width: calc(100% - 40px);
+            font-size: 3rem;
+            border-bottom: solid 2px var(--darkviolet);
+            padding-bottom: 5px;
+          }
+
+          .pokelist-base-stats-in-container {
+            width: 100%;
+            display: flex;
+            gap: 10px;
+            flex-direction: column;
+            list-style: none;
+
+            .pokelist-each-base-stats {
+              border: solid 2px var(--darkviolet);
+              border-radius: 10px;
+              padding: 5px;
+              margin-bottom: 10px;
+              width: fit-content;
+
+              &.hp {
+                background-color: #9ee865;
+              }
+              &.attack {
+                background-color: #f5de69;
+              }
+              &.defense {
+                background-color: #f09a65;
+              }
+              &.special-attack {
+                background-color: #66d8f6;
+              }
+              &.special-defense {
+                background-color: #899eea;
+              }
+              &.speed {
+                background-color: #e46cca;
+              }
+            }
+          }
         }
       }
     }

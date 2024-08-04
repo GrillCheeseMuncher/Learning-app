@@ -1,0 +1,60 @@
+.stats-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+
+  .stats-additional-text {
+    font-size: 2rem;
+    color: var(--darkviolet);
+    font-weight: 600;
+  }
+
+  .stats-container-row {
+    margin-top: 10px;
+    display: grid;
+    gap: 6px;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    .stats-container-each-stat {
+      display: inline-flex;
+      flex-direction: column;
+      padding: 5px 5px;
+      font-size: 1.5rem;
+      border-radius: 5px;
+      border: 2px solid var(--darkviolet);
+      font-weight: 600;
+      color: var(--darkviolet);
+
+      &.hp {
+        background-color: #9ee865;
+      }
+      &.attack {
+        background-color: #f5de69;
+      }
+      &.defense {
+        background-color: #f09a65;
+      }
+      &.special-attack {
+        background-color: #66d8f6;
+      }
+      &.special-defense {
+        background-color: #899eea;
+      }
+      &.speed {
+        background-color: #e46cca;
+      }
+    }
+  }
+}
+
+.pokelist-base-stats-experience {
+  border: solid 2px var(--darkviolet);
+  background-color: var(--yellow);
+  border-radius: 5px;
+  padding-block: 10px;
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--darkviolet);
+  margin-top: 6px;
+}
