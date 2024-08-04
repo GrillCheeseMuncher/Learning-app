@@ -53,6 +53,12 @@ export const Pokelist = ({ pokedex, setPokedex }: PokelistProps) => {
         item.name?.toLocaleLowerCase().includes(pokemonName.toLocaleLowerCase())
       );
       setPokemonList(pokemonListFilter);
+
+      pokemonList.map((pokemon) => (
+        <li key={pokemon.name} className="pokelist-items">
+          {capitalizeFirstLetter(pokemon.name)}
+        </li>
+      ));
     }
   }, [pokemonName, pokedex]);
 
