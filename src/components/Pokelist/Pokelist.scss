@@ -1,11 +1,15 @@
 @import '../../styles/mixins.scss';
 
 .pokelist-items {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 5px;
+  justify-items: center;
   background-color: var(--darkviolet);
   padding: 16px 0px;
   border: 2.5px solid var(--violet);
   border-radius: 2rem;
-  text-align: center;
+
   color: var(--violet);
   font-size: 2.5rem;
   font-family: var(--font-primary);
@@ -33,7 +37,6 @@
   width: 100%;
   background-color: var(--dark);
   height: calc(100vh - var(--header-mobile-margin));
-  // scrollbar-color: ;
 
   @include respond(tab-land) {
     --header-mobile-margin: 205.75px;
@@ -113,106 +116,32 @@
       .pokelist-description-left-container {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         justify-content: flex-start;
         padding: 10px;
 
-        .pokelist-description-image {
-          width: 300px;
-          height: 300px;
-          background-color: var(--violet);
-          border-radius: 10px;
-        }
-
         .pokelist-description-information {
-          background-color: var(--violet);
-          margin-top: 20px;
-          width: calc(100% - 20px);
+          margin-top: 10px;
+          display: grid;
+          gap: 10px;
+          width: 100%;
           height: fit-content;
           border-radius: 10px;
-          padding: 10px;
-
-          .pokemon-name {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 10px;
-            font-size: 2.5rem;
-            text-align: center;
-            padding-bottom: 5px;
-            color: var(--darkviolet);
-            border-bottom: solid 2px var(--darkviolet);
-            font-weight: 600;
-            height: 57.5px;
-          }
         }
       }
 
       .pokelist-description-right-container {
-        display: flex;
-        flex-direction: column;
-        width: calc(100% - 3rem);
-        height: calc(100% - 2rem);
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+        width: 100%;
+        height: fit-content;
         margin: 10px;
-        border-radius: 10px;
 
-        .pokelist-description-right-container-base-stats {
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-          align-items: center;
-          margin-top: 20px;
-          font-size: 2rem;
-          height: fit-content;
-          width: calc(100% - 20px);
-          border-radius: 10px;
-          background-color: var(--violet);
-          color: var(--darkviolet);
-          font-weight: 600;
-          padding: 10px;
-
-          .pokelist-base-stats-additional-text {
-            text-align: center;
-            width: calc(100% - 40px);
-            font-size: 3rem;
-            border-bottom: solid 2px var(--darkviolet);
-            padding-bottom: 5px;
-          }
-
-          .pokelist-base-stats-in-container {
-            width: 100%;
-            display: flex;
-            gap: 10px;
-            flex-direction: column;
-            list-style: none;
-
-            .pokelist-each-base-stats {
-              border: solid 2px var(--darkviolet);
-              border-radius: 10px;
-              padding: 5px;
-              margin-bottom: 10px;
-              width: fit-content;
-
-              &.hp {
-                background-color: #9ee865;
-              }
-              &.attack {
-                background-color: #f5de69;
-              }
-              &.defense {
-                background-color: #f09a65;
-              }
-              &.special-attack {
-                background-color: #66d8f6;
-              }
-              &.special-defense {
-                background-color: #899eea;
-              }
-              &.speed {
-                background-color: #e46cca;
-              }
-            }
-          }
+        .pokelist-abilities-breeding-container {
+          display: grid;
+          grid-template-columns: 1fr 2fr;
+          gap: 20px;
         }
       }
     }

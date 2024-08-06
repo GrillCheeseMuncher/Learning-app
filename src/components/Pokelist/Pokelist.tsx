@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react';
 import { PokedexIndexPokemon, Pokemon, PokemonSpecies } from '../../API/types';
-import FilterButton from '../FilterButton/FilterButton';
 import './Pokelist.scss';
 import { fetch_pokemon, fetch_pokemon_species } from '../../API';
-import { stat } from 'fs';
-import { spawn } from 'child_process';
 import PokemonStats from './PokemonStats/PokemonStats';
 import PokemonAbilities from './PokemonAbilities/PokemonAbilities';
 import PokemonBreeding from './PokemonBreeding/PokemonBreeding';
 import PokemonDetailedInformations from './PokemonDetailedInformations/PokemonDetailedInformations';
-import PokemonSearch from '../SearchBar/SearchBar';
 import Searchbar from '../SearchBar/SearchBar';
+import PokemonForms from './PokemonForms/PokemonForms';
+import PokemonEvolution from './PokemonEvolution/PokemonEvolution';
+import PokemonImage from './PokemonImage/PokemonImage';
+import PokemonNametag from './PokemonNametag/PokemonNametag';
 
 interface PokelistProps {
   pokedex: PokedexIndexPokemon[];
@@ -38,6 +38,10 @@ const abbreviationConverter = (stat: string) => {
   return stats[stat];
 };
 
+const idConverter = (number: number) => {
+  return `#${number.toString().padStart(4, '0')}`;
+};
+
 export const Pokelist = ({ pokedex, setPokedex }: PokelistProps) => {
   const [pokemonList, setPokemonList] = useState<PokedexIndexPokemon[]>(pokedex);
   const [pokemonName, setPokemonName] = useState<string>('');
@@ -53,12 +57,6 @@ export const Pokelist = ({ pokedex, setPokedex }: PokelistProps) => {
         item.name?.toLocaleLowerCase().includes(pokemonName.toLocaleLowerCase())
       );
       setPokemonList(pokemonListFilter);
-
-      pokemonList.map((pokemon) => (
-        <li key={pokemon.name} className="pokelist-items">
-          {capitalizeFirstLetter(pokemon.name)}
-        </li>
-      ));
     }
   }, [pokemonName, pokedex]);
 
@@ -81,6 +79,10 @@ export const Pokelist = ({ pokedex, setPokedex }: PokelistProps) => {
   };
 
   const pokeListMapper = pokemonList.map((pokemon) => {
+    if (pokemon.id >= 10000) {
+      return null;
+    }
+
     const handleCurrentPokemon = () => {
       setCurrentPokemon(pokemon.id);
       fetch_pokemon(pokemon.name).then((pokemon) => setPokemon(pokemon));
@@ -93,7 +95,10 @@ export const Pokelist = ({ pokedex, setPokedex }: PokelistProps) => {
         className={`pokelist-items${currentPokemon === pokemon.id ? ' active' : ''}`}
         onClick={handleCurrentPokemon}
       >
-        {capitalizeFirstLetter(pokemon.name)}
+        <span className="item-content">
+          {pokemon && pokemon.id < 10000 ? idConverter(pokemon.id) : ''}
+        </span>
+        <span className="item-content">{capitalizeFirstLetter(pokemon.name)} </span>
       </li>
     );
   });
@@ -112,33 +117,48 @@ export const Pokelist = ({ pokedex, setPokedex }: PokelistProps) => {
         </div>
       </div>
       <div className="pokelist-right">
-        {pokemon && (
+        {pokemon && pokemonSpecies && (
           <div className="pokelist-description">
             <div className="pokelist-description-left-container">
-              <div className="pokelist-description-image">
-                <img
-                  src={pokemon?.sprites.other['official-artwork'].front_default}
-                  width="300"
-                  height="300"
-                />
-              </div>
+              <PokemonImage pokemon={pokemon} />
               <div className="pokelist-description-information">
-                <div className="pokemon-name">{capitalizeFirstLetter(pokemon.name)}</div>
-
+                <PokemonNametag
+                  pokemon={pokemon}
+                  capitalizeFirstLetter={capitalizeFirstLetter}
+                  idConverter={idConverter}
+                />
                 <PokemonDetailedInformations
                   pokemon={pokemon}
                   capitalizeFirstLetter={capitalizeFirstLetter}
                   propotionsFixed={propotionsFixed}
                 />
-                <PokemonStats pokemon={pokemon} abbreviationConverter={abbreviationConverter} />
+                <PokemonStats
+                  pokemon={pokemon}
+                  abbreviationConverter={abbreviationConverter}
+                  pokemonSpecies={pokemonSpecies}
+                />
               </div>
             </div>
             <div className="pokelist-description-right-container">
-              <PokemonBreeding />
-
-              <PokemonAbilities pokemon={pokemon} capitalizeFirstLetter={capitalizeFirstLetter} />
-
-              <div className="pokelist-description-right-container-base-stats"></div>
+              <PokemonEvolution
+                capitalizeFirstLetter={capitalizeFirstLetter}
+                pokemonSpecies={pokemonSpecies}
+              />
+              <PokemonForms
+                capitalizeFirstLetter={capitalizeFirstLetter}
+                pokemonSpecies={pokemonSpecies}
+              />
+              <div className="pokelist-abilities-breeding-container">
+                <PokemonAbilities
+                  abilities={pokemon.abilities}
+                  capitalizeFirstLetter={capitalizeFirstLetter}
+                />
+                <PokemonBreeding
+                  pokemonSpecies={pokemonSpecies}
+                  pokemon={pokemon}
+                  capitalizeFirstLetter={capitalizeFirstLetter}
+                />
+              </div>
             </div>
           </div>
         )}

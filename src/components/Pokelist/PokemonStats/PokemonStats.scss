@@ -1,23 +1,51 @@
-.stats-container {
+.all-stats-container {
   text-align: center;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  gap: 5px;
 
   .stats-additional-text {
     font-size: 2rem;
+    padding: 5px 0;
     color: var(--darkviolet);
     font-weight: 600;
+    background-color: var(--violet);
+    border-radius: 10px 10px 0 0;
   }
 
-  .stats-container-row {
-    margin-top: 10px;
+  .experience-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    background-color: var(--violet);
+    padding: 10px;
+    text-align: center;
+
+    .pokelist-base-stats-experience {
+      display: grid;
+      gap: 5px;
+
+      font-size: 2rem;
+
+      color: var(--darkviolet);
+      border-radius: 5px;
+
+      .experience-text {
+        font-weight: 600;
+      }
+    }
+  }
+
+  .stats-container {
     display: grid;
     gap: 6px;
     grid-template-columns: 1fr 1fr 1fr;
+    background-color: var(--violet);
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
 
     .stats-container-each-stat {
-      display: inline-flex;
-      flex-direction: column;
+      display: grid;
+      gap: 5px;
       padding: 5px 5px;
       font-size: 1.5rem;
       border-radius: 5px;
@@ -45,16 +73,4 @@
       }
     }
   }
-}
-
-.pokelist-base-stats-experience {
-  border: solid 2px var(--darkviolet);
-  background-color: var(--yellow);
-  border-radius: 5px;
-  padding-block: 10px;
-  width: 100%;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--darkviolet);
-  margin-top: 6px;
 }

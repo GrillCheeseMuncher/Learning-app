@@ -14,19 +14,29 @@ const PokemonDetailedInformations: React.FC<PokemonDetailedInformationsProps> = 
 }) => {
   return (
     <div className="pokemon-information-container">
-      <span>
-        <span className="pokemon-type-indicator">Types: </span>
-        {pokemon.types.map((types) => (
-          <span className={`pokemon-type ${types.type.name}`}>
-            {capitalizeFirstLetter(types.type.name)}
-          </span>
-        ))}
-      </span>
+      <div className="pokemon-type-information-container">
+        <div className="pokemon-type-additional-text">Types: </div>
+        <div className="pokemon-type-container">
+          {pokemon.types.map((types) => (
+            <span className={`pokemon-type ${types.type.name}`}>
+              {capitalizeFirstLetter(types.type.name)}
+            </span>
+          ))}
+        </div>
+      </div>
 
-      <span className="pokemon-proportions">Height: {propotionsFixed(pokemon.height)} m</span>
-      <span className="pokemon-proportions">
-        Weight: {pokemon.weight === 10000 ? `??? kg` : `${propotionsFixed(pokemon.weight)} kg`}
-      </span>
+      <div className="pokemon-all-proportions-container">
+        <div className="pokemon-proportions-container height">
+          <span>{propotionsFixed(pokemon.height)} m</span>
+          <span className="propotions-information-name">Height</span>
+        </div>
+        <div className="pokemon-proportions-container weight">
+          <span>
+            {pokemon.weight === 10000 ? `??? kg` : `${propotionsFixed(pokemon.weight)} kg`}
+          </span>
+          <span className="propotions-information-name">Weight</span>
+        </div>
+      </div>
     </div>
   );
 };
