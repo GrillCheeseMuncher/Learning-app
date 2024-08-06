@@ -4,35 +4,12 @@
   gap: 5px;
 
   .stats-additional-text {
-    font-size: 2rem;
+    font-size: 1.75rem;
     padding: 5px 0;
     color: var(--darkviolet);
     font-weight: 600;
     background-color: var(--violet);
     border-radius: 10px 10px 0 0;
-  }
-
-  .experience-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6px;
-    background-color: var(--violet);
-    padding: 10px;
-    text-align: center;
-
-    .pokelist-base-stats-experience {
-      display: grid;
-      gap: 5px;
-
-      font-size: 2rem;
-
-      color: var(--darkviolet);
-      border-radius: 5px;
-
-      .experience-text {
-        font-weight: 600;
-      }
-    }
   }
 
   .stats-container {

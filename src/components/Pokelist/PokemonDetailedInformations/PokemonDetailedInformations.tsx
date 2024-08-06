@@ -1,21 +1,36 @@
-import { Pokemon } from '../../../API/types';
+import { Pokemon, PokemonSpecies } from '../../../API/types';
 import './PokemonDetailedInformations.scss';
 
 export interface PokemonDetailedInformationsProps {
   pokemon: Pokemon;
+  pokemonSpecies: PokemonSpecies;
   capitalizeFirstLetter: (string: string) => string;
   propotionsFixed: (value: number) => string;
 }
 
 const PokemonDetailedInformations: React.FC<PokemonDetailedInformationsProps> = ({
   pokemon,
+  pokemonSpecies,
   capitalizeFirstLetter,
   propotionsFixed,
 }) => {
+  const grothRateConverter = (stat: string) => {
+    const stats: { [key: string]: string } = {
+      slow: 'Slow',
+      medium: 'Medium',
+      fast: 'Fast',
+      'medium-slow': 'Medium Slow',
+      'medium-fast': 'Medium Fast',
+      'fast-then-very-slow': 'Fluctuating',
+      'slow-then-very-fast': 'Erratic',
+    };
+    return stats[stat];
+  };
+
   return (
     <div className="pokemon-information-container">
       <div className="pokemon-type-information-container">
-        <div className="pokemon-type-additional-text">Types: </div>
+        <div className="pokemon-type-additional-text">Types</div>
         <div className="pokemon-type-container">
           {pokemon.types.map((types) => (
             <span className={`pokemon-type ${types.type.name}`}>
@@ -27,14 +42,31 @@ const PokemonDetailedInformations: React.FC<PokemonDetailedInformationsProps> = 
 
       <div className="pokemon-all-proportions-container">
         <div className="pokemon-proportions-container height">
-          <span>{propotionsFixed(pokemon.height)} m</span>
           <span className="propotions-information-name">Height</span>
+          <span className="pokemon-detailed-information-small-white-box">
+            {propotionsFixed(pokemon.height)} m
+          </span>
         </div>
         <div className="pokemon-proportions-container weight">
-          <span>
+          <span className="propotions-information-name">Weight</span>
+          <span className="pokemon-detailed-information-small-white-box">
             {pokemon.weight === 10000 ? `??? kg` : `${propotionsFixed(pokemon.weight)} kg`}
           </span>
-          <span className="propotions-information-name">Weight</span>
+        </div>
+      </div>
+
+      <div className="experience-container">
+        <div className="pokelist-base-stats-experience exp">
+          <span className="experience-information-name">Base Exp</span>
+          <span className="pokemon-detailed-information-small-white-box">
+            {pokemon.base_experience}
+          </span>
+        </div>
+        <div className="pokelist-base-stats-experience lvl">
+          <span className="experience-information-name">Lvl Rate</span>
+          <span className="pokemon-detailed-information-small-white-box">
+            {grothRateConverter(pokemonSpecies.growth_rate.name)}
+          </span>
         </div>
       </div>
     </div>

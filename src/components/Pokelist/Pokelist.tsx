@@ -11,6 +11,7 @@ import PokemonForms from './PokemonForms/PokemonForms';
 import PokemonEvolution from './PokemonEvolution/PokemonEvolution';
 import PokemonImage from './PokemonImage/PokemonImage';
 import PokemonNametag from './PokemonNametag/PokemonNametag';
+import PokemonLessImportantInformations from './PokemonLessImportantInformations/PokemonLessImportantInformations';
 
 interface PokelistProps {
   pokedex: PokedexIndexPokemon[];
@@ -59,6 +60,19 @@ export const Pokelist = ({ pokedex, setPokedex }: PokelistProps) => {
       setPokemonList(pokemonListFilter);
     }
   }, [pokemonName, pokedex]);
+
+  useEffect(() => {
+    if (pokedex.length > 0) {
+      const randomId = Math.floor(Math.random() * pokedex.length);
+      const randomPokemon = pokedex[randomId];
+      setCurrentPokemon(randomPokemon.id);
+
+      fetch_pokemon(randomPokemon.name).then((pokemonData) => setPokemon(pokemonData));
+      fetch_pokemon_species(randomPokemon.id).then((pokemonSpeciesData) =>
+        setPokemonSpecies(pokemonSpeciesData)
+      );
+    }
+  }, [pokedex]);
 
   const handlePokemonNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPokemonName(e.target.value);
@@ -117,7 +131,7 @@ export const Pokelist = ({ pokedex, setPokedex }: PokelistProps) => {
         </div>
       </div>
       <div className="pokelist-right">
-        {pokemon && pokemonSpecies && (
+        {pokemon && pokemonSpecies ? (
           <div className="pokelist-description">
             <div className="pokelist-description-left-container">
               <PokemonImage pokemon={pokemon} />
@@ -129,6 +143,7 @@ export const Pokelist = ({ pokedex, setPokedex }: PokelistProps) => {
                 />
                 <PokemonDetailedInformations
                   pokemon={pokemon}
+                  pokemonSpecies={pokemonSpecies}
                   capitalizeFirstLetter={capitalizeFirstLetter}
                   propotionsFixed={propotionsFixed}
                 />
@@ -137,6 +152,12 @@ export const Pokelist = ({ pokedex, setPokedex }: PokelistProps) => {
                   abbreviationConverter={abbreviationConverter}
                   pokemonSpecies={pokemonSpecies}
                 />
+                <PokemonLessImportantInformations
+                  pokemonSpecies={pokemonSpecies}
+                  capitalizeFirstLetter={capitalizeFirstLetter}
+                />
+                <div></div>
+                <div></div>
               </div>
             </div>
             <div className="pokelist-description-right-container">
@@ -155,12 +176,13 @@ export const Pokelist = ({ pokedex, setPokedex }: PokelistProps) => {
                 />
                 <PokemonBreeding
                   pokemonSpecies={pokemonSpecies}
-                  pokemon={pokemon}
                   capitalizeFirstLetter={capitalizeFirstLetter}
                 />
               </div>
             </div>
           </div>
+        ) : (
+          <div className="pokelist-description">Select a Pokémon to view details</div>
         )}
       </div>
     </div>

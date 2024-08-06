@@ -29,7 +29,7 @@ const PokemonForms: React.FC<PokemonFormsProps> = ({ pokemonSpecies, capitalizeF
               form.pokemon.name.replace('-gmax', '-gigantamax')
             );
             return (
-              <div className="pokelist-form" key={form.pokemon.name}>
+              <div className="pokelist-form">
                 <div className="pokelist-form-detailed">
                   {capitalizeFirstLetter(pokemonName)}
                   <br />
