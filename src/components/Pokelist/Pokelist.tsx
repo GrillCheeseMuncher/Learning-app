@@ -61,19 +61,6 @@ export const Pokelist = ({ pokedex, setPokedex }: PokelistProps) => {
     }
   }, [pokemonName, pokedex]);
 
-  useEffect(() => {
-    if (pokedex.length > 0) {
-      const randomId = Math.floor(Math.random() * pokedex.length);
-      const randomPokemon = pokedex[randomId];
-      setCurrentPokemon(randomPokemon.id);
-
-      fetch_pokemon(randomPokemon.name).then((pokemonData) => setPokemon(pokemonData));
-      fetch_pokemon_species(randomPokemon.id).then((pokemonSpeciesData) =>
-        setPokemonSpecies(pokemonSpeciesData)
-      );
-    }
-  }, [pokedex]);
-
   const handlePokemonNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPokemonName(e.target.value);
   };
@@ -182,7 +169,11 @@ export const Pokelist = ({ pokedex, setPokedex }: PokelistProps) => {
             </div>
           </div>
         ) : (
-          <div className="pokelist-description">Select a Pokémon to view details</div>
+          <div className="pokelist-description">
+            <div className="welcome-pokedex">
+              <span>Choose a Pokemon to Continue</span>
+            </div>
+          </div>
         )}
       </div>
     </div>
