@@ -29,17 +29,17 @@
 }
 
 .pokelist-container {
-  --header-mobile-margin: 86px;
+  --header-margin: 86px;
 
-  margin-top: var(--header-mobile-margin);
+  margin-top: var(--header-margin);
   position: relative;
   display: flex;
   width: 100%;
   background-color: var(--dark);
-  height: calc(100vh - var(--header-mobile-margin));
+  height: calc(100vh - var(--header-margin));
 
   @include respond(tab-land) {
-    --header-mobile-margin: 205.75px;
+    --header-margin: 205.75px;
   }
 
   .pokelist-left {
@@ -49,35 +49,30 @@
 
     .pokelist-grid-container {
       position: relative;
-      flex: 1;
       overflow-y: auto;
+      display: grid;
+      margin: 0 15px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+
       &::-webkit-scrollbar {
-        width: 1rem;
+        display: none;
       }
-      &::-webkit-scrollbar-track {
-        background: var(--darkviolet);
-        border-radius: 5px;
-      }
-      &::-webkit-scrollbar-thumb {
-        background: var(--red);
-        border-radius: 5px;
+
+      @include respond(tab-land) {
+        width: calc(100% - 30px);
+        margin-left: 30px;
       }
 
       .pokelist-grid {
         display: grid;
-        grid-template-columns: repeat(1, 1fr);
         font-family: var(--font-primary);
         gap: 1.5rem;
         list-style-type: none;
-        margin: 1.5rem;
-        margin-top: 0;
 
         @include respond(tab-land) {
           grid-template-columns: repeat(1, 1fr);
           gap: 3rem;
-          margin: 3rem;
-          margin-top: 0;
-          width: 454.453px;
         }
       }
     }
