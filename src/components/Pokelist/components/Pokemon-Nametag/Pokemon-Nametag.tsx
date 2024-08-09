@@ -1,5 +1,5 @@
-import { Pokemon } from '../../../API/types';
-import './PokemonNametag.scss';
+import { Pokemon } from '../../../../API/types';
+import './Pokemon-Nametag.scss';
 
 interface PokemonNametagProps {
   pokemon: Pokemon;

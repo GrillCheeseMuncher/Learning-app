@@ -1,5 +1,5 @@
-import { Pokemon } from '../../../API/types';
-import './PokemonImage.scss';
+import { Pokemon } from '../../../../API/types';
+import './Pokemon-Image.scss';
 
 interface PokemonImageProps {
   pokemon: Pokemon;

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { fetch_pokemon } from '../../../API';
-import { Pokemon, PokemonSpecies } from '../../../API/types';
-import './PokemonForms.scss';
+import { fetch_pokemon } from '../../../../API';
+import { Pokemon, PokemonSpecies } from '../../../../API/types';
+import './Pokemon-Forms.scss';
 
 interface PokemonFormsProps {
   pokemonSpecies: PokemonSpecies;
@@ -35,14 +35,11 @@ const PokemonForms: React.FC<PokemonFormsProps> = ({
     'vikavolt',
     'mimikyu-disguised',
     'lurantis',
-    'wishiwashi',
     'gumshoos',
-    'marowak',
     'salazzle',
     'togedemaru',
     'kommo-o',
     'araquanid',
-    'raticate',
     'lurantis',
   ];
 
@@ -74,17 +71,13 @@ const PokemonForms: React.FC<PokemonFormsProps> = ({
       variant.name.replace('-gmax', '-gigantamax')
     );
 
-    if (excludedVariants.includes(variant.name)) {
-      return null;
-    }
+    if (excludedVariants.includes(variant.name)) return null;
 
-    if (variant.name.includes('-totem')) {
-      return null;
-    }
+    if (variant.name.includes('-totem')) return null;
 
-    const imageUrl = variant.sprites.other['official-artwork'].front_default;
+    const variantImage = variant.sprites.other['official-artwork'].front_default;
 
-    if (!imageUrl) return null;
+    if (!variantImage) return null;
 
     return (
       <div key={variant.id} className="pokelist-form" onClick={() => onFormClick(variant)}>

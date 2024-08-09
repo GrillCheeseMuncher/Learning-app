@@ -1,5 +1,5 @@
-import { Pokemon, PokemonSpecies } from '../../../API/types';
-import './PokemonDetailedInformations.scss';
+import { Pokemon, PokemonSpecies } from '../../../../API/types';
+import './Pokemon-Detailed-Informations.scss';
 
 export interface PokemonDetailedInformationsProps {
   pokemon: Pokemon;

@@ -1,5 +1,5 @@
-import { NamedAPIResource, PokemonAbilities as PokemonAbility } from '../../../API/types';
-import './PokemonAbilities.scss';
+import { PokemonAbilities as PokemonAbility } from '../../../../API/types';
+import './Pokemon-Abilities.scss';
 
 interface PokemonAbilitiesProps {
   abilities: PokemonAbility[];

@@ -1,5 +1,5 @@
-import { PokemonSpecies } from '../../../API/types';
-import './PokemonBreeding.scss';
+import { PokemonSpecies } from '../../../../API/types';
+import './Pokemon-Breeding.scss';
 
 interface PokemonBreedingsProps {
   pokemonSpecies: PokemonSpecies;

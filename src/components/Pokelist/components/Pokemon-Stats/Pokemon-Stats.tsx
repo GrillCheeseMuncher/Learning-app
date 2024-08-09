@@ -1,5 +1,5 @@
-import { Pokemon, PokemonSpecies } from '../../../API/types';
-import './PokemonStats.scss';
+import { Pokemon, PokemonSpecies } from '../../../../API/types';
+import './Pokemon-Stats.scss';
 
 interface PokemonStatsProps {
   pokemon: Pokemon;

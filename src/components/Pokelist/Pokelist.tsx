@@ -2,16 +2,16 @@ import { useEffect, useState } from 'react';
 import { PokedexIndexPokemon, Pokemon, PokemonSpecies } from '../../API/types';
 import './Pokelist.scss';
 import { fetch_pokemon, fetch_pokemon_species } from '../../API';
-import PokemonStats from './PokemonStats/PokemonStats';
-import PokemonAbilities from './PokemonAbilities/PokemonAbilities';
-import PokemonBreeding from './PokemonBreeding/PokemonBreeding';
-import PokemonDetailedInformations from './PokemonDetailedInformations/PokemonDetailedInformations';
+import PokemonStats from './components/Pokemon-Stats/Pokemon-Stats';
+import PokemonAbilities from './components/Pokemon-Abilities/Pokemon-Abilities';
+import PokemonBreeding from './components/Pokemon-Breeding/Pokemon-Breeding';
+import PokemonDetailedInformations from './components/Pokemon-Detailed-Informations/Pokemon-Detailed-Informations';
 import Searchbar from '../SearchBar/SearchBar';
-import PokemonForms from './PokemonForms/PokemonForms';
-import PokemonEvolution from './PokemonEvolution/PokemonEvolution';
-import PokemonImage from './PokemonImage/PokemonImage';
-import PokemonNametag from './PokemonNametag/PokemonNametag';
-import PokemonLessImportantInformations from './PokemonLessImportantInformations/PokemonLessImportantInformations';
+import PokemonForms from './components/Pokemon-Forms/Pokemon-Forms';
+import PokemonEvolution from './components/Pokemon-Evolution/Pokemon-Evolution';
+import PokemonImage from './components/Pokemon-Image/Pokemon-Image';
+import PokemonNametag from './components/Pokemon-Nametag/Pokemon-Nametag';
+import PokemonLessImportantInformations from './components/Pokemon-Less-Important-Informations/Pokemon-Less-Important-Informations';
 
 interface PokelistProps {
   pokedex: PokedexIndexPokemon[];

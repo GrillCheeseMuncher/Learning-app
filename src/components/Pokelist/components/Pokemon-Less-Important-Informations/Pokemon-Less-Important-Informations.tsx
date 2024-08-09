@@ -1,5 +1,5 @@
-import { PokemonSpecies } from '../../../API/types';
-import './PokemonLessImportantInformations.scss';
+import { PokemonSpecies } from '../../../../API/types';
+import './Pokemon-Less-Important-Informations.scss';
 
 interface PokemonLessImportantInformationsPropos {
   pokemonSpecies: PokemonSpecies;
@@ -13,20 +13,20 @@ const PokemonLessImportantInformations: React.FC<PokemonLessImportantInformation
   const shapeImageConverter = () => {
     const shape = pokemonSpecies.shape.name;
     const shapeImages: { [key: string]: any } = {
-      ball: require('../../../img/PokemonShapes/Shape01.png'),
-      squiggle: require('../../../img/PokemonShapes/Shape02.png'),
-      fish: require('../../../img/PokemonShapes/Shape03.png'),
-      arms: require('../../../img/PokemonShapes/Shape04.png'),
-      blob: require('../../../img/PokemonShapes/Shape05.png'),
-      upright: require('../../../img/PokemonShapes/Shape06.png'),
-      legs: require('../../../img/PokemonShapes/Shape07.png'),
-      quadruped: require('../../../img/PokemonShapes/Shape08.png'),
-      wings: require('../../../img/PokemonShapes/Shape09.png'),
-      tentacles: require('../../../img/PokemonShapes/Shape10.png'),
-      heads: require('../../../img/PokemonShapes/Shape11.png'),
-      humanoid: require('../../../img/PokemonShapes/Shape12.png'),
-      'bug-wings': require('../../../img/PokemonShapes/Shape13.png'),
-      armor: require('../../../img/PokemonShapes/Shape14.png'),
+      ball: require('../../../../img/PokemonShapes/Shape01.png'),
+      squiggle: require('../../../../img/PokemonShapes/Shape02.png'),
+      fish: require('../../../../img/PokemonShapes/Shape03.png'),
+      arms: require('../../../../img/PokemonShapes/Shape04.png'),
+      blob: require('../../../../img/PokemonShapes/Shape05.png'),
+      upright: require('../../../../img/PokemonShapes/Shape06.png'),
+      legs: require('../../../../img/PokemonShapes/Shape07.png'),
+      quadruped: require('../../../../img/PokemonShapes/Shape08.png'),
+      wings: require('../../../../img/PokemonShapes/Shape09.png'),
+      tentacles: require('../../../../img/PokemonShapes/Shape10.png'),
+      heads: require('../../../../img/PokemonShapes/Shape11.png'),
+      humanoid: require('../../../../img/PokemonShapes/Shape12.png'),
+      'bug-wings': require('../../../../img/PokemonShapes/Shape13.png'),
+      armor: require('../../../../img/PokemonShapes/Shape14.png'),
     };
 
     return shapeImages[shape] ? (
