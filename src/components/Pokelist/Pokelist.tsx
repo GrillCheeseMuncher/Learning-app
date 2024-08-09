@@ -49,10 +49,17 @@ export const Pokelist = ({ pokedex, setPokedex }: PokelistProps) => {
   const [currentPokemon, setCurrentPokemon] = useState<number | undefined>(undefined);
   const [pokemon, setPokemon] = useState<Pokemon | undefined>(undefined);
   const [pokemonSpecies, setPokemonSpecies] = useState<PokemonSpecies | undefined>(undefined);
+  const [selectedVariant, setSelectedVariant] = useState<Pokemon | undefined>(undefined);
 
   useEffect(() => {
-    if (pokemonName.length < 0) {
-      setPokemonList(pokedex);
+    if (pokemonName.startsWith('#')) {
+      const id = parseInt(pokemonName.substring(1), 10);
+      if (!isNaN(id)) {
+        const pokemonListFilter = pokedex.filter((item) => item.id === id);
+        setPokemonList(pokemonListFilter);
+      } else {
+        setPokemonList([]);
+      }
     } else {
       const pokemonListFilter = pokedex.filter((item) =>
         item.name?.toLocaleLowerCase().includes(pokemonName.toLocaleLowerCase())
@@ -60,19 +67,6 @@ export const Pokelist = ({ pokedex, setPokedex }: PokelistProps) => {
       setPokemonList(pokemonListFilter);
     }
   }, [pokemonName, pokedex]);
-
-  useEffect(() => {
-    if (pokedex.length > 0) {
-      const randomId = Math.floor(Math.random() * pokedex.length);
-      const randomPokemon = pokedex[randomId];
-      setCurrentPokemon(randomPokemon.id);
-
-      fetch_pokemon(randomPokemon.name).then((pokemonData) => setPokemon(pokemonData));
-      fetch_pokemon_species(randomPokemon.id).then((pokemonSpeciesData) =>
-        setPokemonSpecies(pokemonSpeciesData)
-      );
-    }
-  }, [pokedex]);
 
   const handlePokemonNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPokemonName(e.target.value);
@@ -92,6 +86,10 @@ export const Pokelist = ({ pokedex, setPokedex }: PokelistProps) => {
     setPokedex(pokeNumberSort);
   };
 
+  const modifiedPokemonName = (name: string) => {
+    return name.replace('-disguised', '');
+  };
+
   const pokeListMapper = pokemonList.map((pokemon) => {
     if (pokemon.id >= 10000) {
       return null;
@@ -99,9 +97,14 @@ export const Pokelist = ({ pokedex, setPokedex }: PokelistProps) => {
 
     const handleCurrentPokemon = () => {
       setCurrentPokemon(pokemon.id);
-      fetch_pokemon(pokemon.name).then((pokemon) => setPokemon(pokemon));
+      fetch_pokemon(pokemon.name).then((pokemon) => {
+        setPokemon(pokemon);
+        setSelectedVariant(undefined);
+      });
       fetch_pokemon_species(pokemon.id).then((res) => setPokemonSpecies(res));
     };
+
+    const displayedPokemonName = modifiedPokemonName(pokemon.name);
 
     return (
       <li
@@ -112,7 +115,7 @@ export const Pokelist = ({ pokedex, setPokedex }: PokelistProps) => {
         <span className="item-content">
           {pokemon && pokemon.id < 10000 ? idConverter(pokemon.id) : ''}
         </span>
-        <span className="item-content">{capitalizeFirstLetter(pokemon.name)} </span>
+        <span className="item-content">{capitalizeFirstLetter(displayedPokemonName)} </span>
       </li>
     );
   });
@@ -134,21 +137,24 @@ export const Pokelist = ({ pokedex, setPokedex }: PokelistProps) => {
         {pokemon && pokemonSpecies ? (
           <div className="pokelist-description">
             <div className="pokelist-description-left-container">
-              <PokemonImage pokemon={pokemon} />
+              <PokemonImage pokemon={selectedVariant || pokemon} />
               <div className="pokelist-description-information">
                 <PokemonNametag
-                  pokemon={pokemon}
+                  pokemon={selectedVariant || pokemon}
                   capitalizeFirstLetter={capitalizeFirstLetter}
                   idConverter={idConverter}
+                  displayedPokemonName={modifiedPokemonName(
+                    selectedVariant?.name || pokemon?.name || ''
+                  )}
                 />
                 <PokemonDetailedInformations
-                  pokemon={pokemon}
+                  pokemon={selectedVariant || pokemon}
                   pokemonSpecies={pokemonSpecies}
                   capitalizeFirstLetter={capitalizeFirstLetter}
                   propotionsFixed={propotionsFixed}
                 />
                 <PokemonStats
-                  pokemon={pokemon}
+                  pokemon={selectedVariant || pokemon}
                   abbreviationConverter={abbreviationConverter}
                   pokemonSpecies={pokemonSpecies}
                 />
@@ -156,22 +162,12 @@ export const Pokelist = ({ pokedex, setPokedex }: PokelistProps) => {
                   pokemonSpecies={pokemonSpecies}
                   capitalizeFirstLetter={capitalizeFirstLetter}
                 />
-                <div></div>
-                <div></div>
               </div>
             </div>
             <div className="pokelist-description-right-container">
-              <PokemonEvolution
-                capitalizeFirstLetter={capitalizeFirstLetter}
-                pokemonSpecies={pokemonSpecies}
-              />
-              <PokemonForms
-                capitalizeFirstLetter={capitalizeFirstLetter}
-                pokemonSpecies={pokemonSpecies}
-              />
               <div className="pokelist-abilities-breeding-container">
                 <PokemonAbilities
-                  abilities={pokemon.abilities}
+                  abilities={(selectedVariant || pokemon).abilities}
                   capitalizeFirstLetter={capitalizeFirstLetter}
                 />
                 <PokemonBreeding
@@ -179,10 +175,23 @@ export const Pokelist = ({ pokedex, setPokedex }: PokelistProps) => {
                   capitalizeFirstLetter={capitalizeFirstLetter}
                 />
               </div>
+              <PokemonEvolution
+                capitalizeFirstLetter={capitalizeFirstLetter}
+                pokemonSpecies={pokemonSpecies}
+              />
+              <PokemonForms
+                pokemonSpecies={pokemonSpecies}
+                capitalizeFirstLetter={capitalizeFirstLetter}
+                onFormClick={setSelectedVariant}
+              />
             </div>
           </div>
         ) : (
-          <div className="pokelist-description">Select a Pokémon to view details</div>
+          <div className="pokelist-description">
+            <div className="welcome-pokedex">
+              <span>Choose a Pokemon to Continue</span>
+            </div>
+          </div>
         )}
       </div>
     </div>

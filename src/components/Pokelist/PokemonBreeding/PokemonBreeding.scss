@@ -188,10 +188,9 @@
           padding: 5px 0;
           width: 100%;
           max-width: calc(100% - 10px);
-          color: white;
           border: 2px solid var(--darkviolet);
           border-radius: 5px;
-          background-color: white;
+          background-color: var(--lightviolet);
           color: var(--darkviolet);
         }
       }

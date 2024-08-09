@@ -24,3 +24,21 @@
     border-radius: 0 10px 10px 0;
   }
 }
+
+.pokemon-name-variant-container {
+  width: 100%;
+  font-weight: 600;
+  height: 57.5px;
+  font-size: 2.5rem;
+  text-align: center;
+  color: var(--darkviolet);
+
+  .pokemon-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--violet);
+    border-radius: 10px;
+    height: 100%;
+  }
+}

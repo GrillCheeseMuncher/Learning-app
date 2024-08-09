@@ -18,7 +18,7 @@ const PokemonStats: React.FC<PokemonStatsProps> = ({
 
       <div className="stats-container">
         {pokemon.stats.map((stats) => (
-          <div className={`stats-container-each-stat ${stats.stat.name}`} key={stats.stat.name}>
+          <div key={stats.stat.name} className={`stats-container-each-stat ${stats.stat.name}`}>
             <span>{stats.base_stat}</span>
             <span>{abbreviationConverter(stats.stat.name)}</span>
           </div>

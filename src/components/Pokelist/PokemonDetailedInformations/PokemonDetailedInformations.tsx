@@ -59,7 +59,7 @@ const PokemonDetailedInformations: React.FC<PokemonDetailedInformationsProps> = 
         <div className="pokelist-base-stats-experience exp">
           <span className="experience-information-name">Base Exp</span>
           <span className="pokemon-detailed-information-small-white-box">
-            {pokemon.base_experience}
+            {pokemon.base_experience === null ? `Unknown` : pokemon.base_experience}
           </span>
         </div>
         <div className="pokelist-base-stats-experience lvl">

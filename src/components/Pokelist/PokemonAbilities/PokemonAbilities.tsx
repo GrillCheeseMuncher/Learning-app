@@ -20,7 +20,10 @@ const PokemonAbilities: React.FC<PokemonAbilitiesProps> = ({
       <div className="pokelist-abilities-additional-text">Abilities</div>
       <div className="pokelist-abilities-in-container">
         {uniqueAbilities.map((ability) => (
-          <li className={`pokelist-each-ability${ability.is_hidden ? ' hidden' : ''}`}>
+          <li
+            key={ability.ability.name}
+            className={`pokelist-each-ability${ability.is_hidden ? ' hidden' : ''}`}
+          >
             {capitalizeFirstLetter(ability.ability.name)}
           </li>
         ))}

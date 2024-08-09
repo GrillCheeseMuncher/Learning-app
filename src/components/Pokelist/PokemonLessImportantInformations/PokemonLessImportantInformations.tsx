@@ -40,7 +40,9 @@ const PokemonLessImportantInformations: React.FC<PokemonLessImportantInformation
     <div className="less-important-informations">
       <div className="pokemon-less-important-container shape">
         <span className="pokemon-less-text">Shape</span>
-        <div>{pokemonSpecies.shape ? shapeImageConverter() : 'Unknown'}</div>
+        <div className={pokemonSpecies.shape ? '' : 'pokemon-small-white-box'}>
+          {pokemonSpecies.shape ? shapeImageConverter() : 'Unknown'}
+        </div>
       </div>
       <div className="pokemon-less-important-container footprint">
         <span className="pokemon-less-text">Habitat</span>

@@ -71,7 +71,7 @@ const PokemonBreeding: React.FC<PokemonBreedingsProps> = ({
   };
 
   const eggGroupsConverter = () => {
-    return pokemonSpecies.egg_groups.map((eggGroup) => {
+    return pokemonSpecies.egg_groups.map((eggGroup, index) => {
       const eggGroupName =
         eggGroup.name === 'humanshape'
           ? 'human-like'
@@ -91,7 +91,7 @@ const PokemonBreeding: React.FC<PokemonBreedingsProps> = ({
           ? 'undiscovered'
           : eggGroup.name;
       return (
-        <span className={`single-egg-group ${eggGroup.name}`}>
+        <span key={index} className={`single-egg-group ${eggGroup.name}`}>
           {capitalizeFirstLetter(eggGroupName)}
         </span>
       );

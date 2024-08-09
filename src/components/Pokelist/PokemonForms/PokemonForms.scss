@@ -19,9 +19,9 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
-    width: calc(100% - 40px);
+    width: 100%;
     height: fit-content;
-    padding: 20px;
+
     background-color: var(--violet);
     color: var(--red);
     border-radius: 0 0 10px 10px;
@@ -32,6 +32,18 @@
       text-align: center;
       width: 20%;
       margin: 10px 0;
+
+      .pokelist-form-detailed {
+        display: grid;
+        justify-content: center;
+        justify-items: center;
+
+        .pokelist-form-image {
+          width: 140px;
+          height: 140px;
+          cursor: pointer;
+        }
+      }
     }
   }
 }
