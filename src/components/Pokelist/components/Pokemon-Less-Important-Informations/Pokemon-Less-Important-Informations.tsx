@@ -1,8 +1,8 @@
-import { PokemonSpecies } from '../../../../API/types';
+import { PokemonSpeciesWithEvolutionChain } from '../../../../API/types';
 import './Pokemon-Less-Important-Informations.scss';
 
 interface PokemonLessImportantInformationsPropos {
-  pokemonSpecies: PokemonSpecies;
+  pokemonSpecies: PokemonSpeciesWithEvolutionChain;
   capitalizeFirstLetter: (stat: string) => string;
 }
 

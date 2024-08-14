@@ -15,17 +15,33 @@
     border-radius: 10px 10px 0 0;
     padding: 5px 0;
   }
-
-  .pokelist-evolution-chain {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+  .pokelist-evolution-chain-container {
+    display: grid;
     width: 100%;
-    height: fit-content;
-    padding: 10px 0;
-    background-color: var(--violet);
-    color: var(--darkviolet);
-    border-radius: 0 0 10px 10px;
-    font-size: 2rem;
+
+    .pokelist-evolution-chain {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      padding: 10px 0;
+      background-color: var(--violet);
+      color: var(--darkviolet);
+      border-radius: 0 0 10px 10px;
+      font-size: 2rem;
+
+      .evolution-item {
+        display: grid;
+        justify-items: center;
+
+        .current-pokemon {
+          color: var(--red);
+        }
+      }
+
+      .evolution-separator {
+        font-size: 3rem;
+        margin: 0 1rem;
+      }
+    }
   }
 }

@@ -1,9 +1,9 @@
-import { Pokemon, PokemonSpecies } from '../../../../API/types';
+import { Pokemon, PokemonSpeciesWithEvolutionChain } from '../../../../API/types';
 import './Pokemon-Stats.scss';
 
 interface PokemonStatsProps {
   pokemon: Pokemon;
-  pokemonSpecies: PokemonSpecies;
+  pokemonSpecies: PokemonSpeciesWithEvolutionChain;
   abbreviationConverter: (stat: string) => string;
 }
 

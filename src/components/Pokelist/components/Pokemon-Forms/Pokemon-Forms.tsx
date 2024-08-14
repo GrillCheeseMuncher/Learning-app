@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react';
 import { fetch_pokemon } from '../../../../API';
-import { Pokemon, PokemonSpecies } from '../../../../API/types';
+import { Pokemon, PokemonSpeciesWithEvolutionChain } from '../../../../API/types';
 import './Pokemon-Forms.scss';
 
 interface PokemonFormsProps {
-  pokemonSpecies: PokemonSpecies;
+  currentDisplayPokemon: Pokemon;
+  pokemonSpecies: PokemonSpeciesWithEvolutionChain;
   capitalizeFirstLetter: (stat: string) => string;
   onFormClick: (variant: Pokemon) => void;
 }
 
 const PokemonForms: React.FC<PokemonFormsProps> = ({
+  currentDisplayPokemon,
   pokemonSpecies,
   capitalizeFirstLetter,
   onFormClick,
@@ -65,7 +67,7 @@ const PokemonForms: React.FC<PokemonFormsProps> = ({
   };
 
   const variantsList = variants.map((variant, index) => {
-    if (!variant || index < 0) return null;
+    if (!variant || index < 0 || variant.name === currentDisplayPokemon.name) return null;
 
     const { pokemonName, pokemonFormName } = splitFormName(
       variant.name.replace('-gmax', '-gigantamax')
@@ -83,11 +85,7 @@ const PokemonForms: React.FC<PokemonFormsProps> = ({
       <div key={variant.id} className="pokelist-form" onClick={() => onFormClick(variant)}>
         <div className="pokelist-form-detailed">
           <div className="pokelist-form-image">
-            <img
-              src={variant.sprites.other['official-artwork'].front_default}
-              width="140"
-              height="140"
-            />
+            <img src={variantImage} width="140" height="140" />
           </div>
           <span>{capitalizeFirstLetter(pokemonName)}</span>
           <span>{capitalizeFirstLetter(pokemonFormName)}</span>

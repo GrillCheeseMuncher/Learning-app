@@ -1,8 +1,8 @@
-import { PokemonSpecies } from '../../../../API/types';
+import { PokemonSpeciesWithEvolutionChain } from '../../../../API/types';
 import './Pokemon-Breeding.scss';
 
 interface PokemonBreedingsProps {
-  pokemonSpecies: PokemonSpecies;
+  pokemonSpecies: PokemonSpeciesWithEvolutionChain;
   capitalizeFirstLetter: (stat: string) => string;
 }
 

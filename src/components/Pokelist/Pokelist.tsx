@@ -1,5 +1,10 @@
 import { useEffect, useState } from 'react';
-import { PokedexIndexPokemon, Pokemon, PokemonSpecies } from '../../API/types';
+import {
+  PokedexIndexPokemon,
+  Pokemon,
+  PokemonSpecies,
+  PokemonSpeciesWithEvolutionChain,
+} from '../../API/types';
 import './Pokelist.scss';
 import { fetch_pokemon, fetch_pokemon_species } from '../../API';
 import PokemonStats from './components/Pokemon-Stats/Pokemon-Stats';
@@ -48,7 +53,9 @@ export const Pokelist = ({ pokedex, setPokedex }: PokelistProps) => {
   const [pokemonName, setPokemonName] = useState<string>('');
   const [currentPokemon, setCurrentPokemon] = useState<number | undefined>(undefined);
   const [pokemon, setPokemon] = useState<Pokemon | undefined>(undefined);
-  const [pokemonSpecies, setPokemonSpecies] = useState<PokemonSpecies | undefined>(undefined);
+  const [pokemonSpecies, setPokemonSpecies] = useState<
+    PokemonSpeciesWithEvolutionChain | undefined
+  >(undefined);
   const [selectedVariant, setSelectedVariant] = useState<Pokemon | undefined>(undefined);
 
   useEffect(() => {
@@ -178,8 +185,10 @@ export const Pokelist = ({ pokedex, setPokedex }: PokelistProps) => {
               <PokemonEvolution
                 capitalizeFirstLetter={capitalizeFirstLetter}
                 pokemonSpecies={pokemonSpecies}
+                currentPokemonName={pokemon.name}
               />
               <PokemonForms
+                currentDisplayPokemon={selectedVariant || pokemon}
                 pokemonSpecies={pokemonSpecies}
                 capitalizeFirstLetter={capitalizeFirstLetter}
                 onFormClick={setSelectedVariant}

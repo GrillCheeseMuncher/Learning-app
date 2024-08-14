@@ -1,9 +1,9 @@
-import { Pokemon, PokemonSpecies } from '../../../../API/types';
+import { Pokemon, PokemonSpecies, PokemonSpeciesWithEvolutionChain } from '../../../../API/types';
 import './Pokemon-Detailed-Informations.scss';
 
 export interface PokemonDetailedInformationsProps {
   pokemon: Pokemon;
-  pokemonSpecies: PokemonSpecies;
+  pokemonSpecies: PokemonSpeciesWithEvolutionChain;
   capitalizeFirstLetter: (string: string) => string;
   propotionsFixed: (value: number) => string;
 }
