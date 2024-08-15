@@ -1,4 +1,4 @@
-import { Pokemon, PokemonSpecies, PokemonSpeciesWithEvolutionChain } from '../../../../API/types';
+import { Pokemon, PokemonSpeciesWithEvolutionChain } from '../../../../API/types';
 import './Pokemon-Detailed-Informations.scss';
 
 export interface PokemonDetailedInformationsProps {

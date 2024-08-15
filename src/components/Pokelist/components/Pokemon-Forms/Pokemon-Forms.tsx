@@ -90,7 +90,7 @@ const PokemonForms: React.FC<PokemonFormsProps> = ({
       <div key={variant.id} className="pokelist-form" onClick={() => onFormClick(variant)}>
         <div className="pokelist-form-detailed">
           <div className="pokelist-form-image">
-            <img src={variantImage} width="140" height="140" />
+            <img src={variantImage} width="140" height="140" alt={pokemonFormName} />
           </div>
           <span>{capitalizeFirstLetter(pokemonName)}</span>
           <span>{capitalizeFirstLetter(pokemonFormName)}</span>
