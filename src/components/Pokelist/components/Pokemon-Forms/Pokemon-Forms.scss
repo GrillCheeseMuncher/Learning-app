@@ -42,6 +42,12 @@
           width: 140px;
           height: 140px;
           cursor: pointer;
+          transition: 0.2s ease-in-out;
+
+          &:hover {
+            transition: 0.2s ease-in-out;
+            transform: scale(110%);
+          }
         }
       }
     }

@@ -56,6 +56,7 @@ export const Pokelist = ({ pokedex, setPokedex }: PokelistProps) => {
   const [pokemonSpecies, setPokemonSpecies] = useState<
     PokemonSpeciesWithEvolutionChain | undefined
   >(undefined);
+
   const [selectedVariant, setSelectedVariant] = useState<Pokemon | undefined>(undefined);
 
   useEffect(() => {
@@ -97,6 +98,15 @@ export const Pokelist = ({ pokedex, setPokedex }: PokelistProps) => {
     return name.replace('-disguised', '');
   };
 
+  const handleChainClick = (pokemon: Pokemon) => {
+    setSelectedVariant(pokemon);
+    setCurrentPokemon(pokemon.id);
+    setPokemon(pokemon);
+    fetch_pokemon_species(pokemon.id).then((res) => {
+      setPokemonSpecies(res);
+    });
+  };
+
   const pokeListMapper = pokemonList.map((pokemon) => {
     if (pokemon.id >= 10000) {
       return null;
@@ -108,7 +118,9 @@ export const Pokelist = ({ pokedex, setPokedex }: PokelistProps) => {
         setPokemon(pokemon);
         setSelectedVariant(undefined);
       });
-      fetch_pokemon_species(pokemon.id).then((res) => setPokemonSpecies(res));
+      fetch_pokemon_species(pokemon.id).then((res) => {
+        setPokemonSpecies(res);
+      });
     };
 
     const displayedPokemonName = modifiedPokemonName(pokemon.name);
@@ -186,6 +198,7 @@ export const Pokelist = ({ pokedex, setPokedex }: PokelistProps) => {
                 capitalizeFirstLetter={capitalizeFirstLetter}
                 pokemonSpecies={pokemonSpecies}
                 currentPokemonName={pokemon.name}
+                onEvolutionClick={handleChainClick}
               />
               <PokemonForms
                 currentDisplayPokemon={selectedVariant || pokemon}

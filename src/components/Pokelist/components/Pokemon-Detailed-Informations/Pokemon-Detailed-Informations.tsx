@@ -33,7 +33,7 @@ const PokemonDetailedInformations: React.FC<PokemonDetailedInformationsProps> = 
         <div className="pokemon-type-additional-text">Types</div>
         <div className="pokemon-type-container">
           {pokemon.types.map((types) => (
-            <span className={`pokemon-type ${types.type.name}`}>
+            <span key={types.type.name} className={`pokemon-type ${types.type.name}`}>
               {capitalizeFirstLetter(types.type.name)}
             </span>
           ))}

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import {
   ChainLink,
   NamedAPIResource,
@@ -12,12 +12,14 @@ interface PokemonEvolutionProps {
   pokemonSpecies: PokemonSpeciesWithEvolutionChain;
   capitalizeFirstLetter: (stat: string) => string;
   currentPokemonName: string;
+  onEvolutionClick: (pokemon: Pokemon) => void;
 }
 
 const PokemonEvolution: React.FC<PokemonEvolutionProps> = ({
   pokemonSpecies,
   capitalizeFirstLetter,
   currentPokemonName,
+  onEvolutionClick,
 }) => {
   const [evolution, setEvolution] = useState<(Pokemon | undefined)[]>([]);
 
@@ -32,8 +34,6 @@ const PokemonEvolution: React.FC<PokemonEvolutionProps> = ({
 
     fetchEvolutionPokemons().then((results) => setEvolution(results));
   }, [pokemonSpecies]);
-
-  console.log('pokemonSpecies', pokemonSpecies);
 
   const evolutionChain = (chain: ChainLink, results: NamedAPIResource[] = []) => {
     const partialResults: NamedAPIResource[] = results;
@@ -60,15 +60,27 @@ const PokemonEvolution: React.FC<PokemonEvolutionProps> = ({
       ) : null;
 
     return (
-      <>
-        <div key={index} className="evolution-item">
-          {evolutionImage && <img src={evolutionImage} alt={evo.name} width="140" height="140" />}
-          <span className={`${evo.name === currentPokemonName ? 'current-pokemon' : ''}`}>
+      <Fragment key={index}>
+        <div className="evolution-item" onClick={() => onEvolutionClick(evo)}>
+          {evolutionImage && (
+            <img
+              src={evolutionImage}
+              alt={evo.name}
+              width="140"
+              height="140"
+              className={`evolution-picture ${
+                evo.name === currentPokemonName ? 'current-pokemon-picture' : ''
+              }`}
+            />
+          )}
+          <span
+            className={`evolution-text ${evo.name === currentPokemonName ? 'current-pokemon' : ''}`}
+          >
             {capitalizeFirstLetter(evo.name)}
           </span>
         </div>
-        <div>{separator}</div>
-      </>
+        {index < evolution?.length - 1 && <div>{separator}</div>}
+      </Fragment>
     );
   });
 

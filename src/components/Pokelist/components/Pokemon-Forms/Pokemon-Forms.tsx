@@ -46,6 +46,11 @@ const PokemonForms: React.FC<PokemonFormsProps> = ({
   ];
 
   useEffect(() => {
+    if (pokemonSpecies.varieties.length <= 1) {
+      setVariants([]);
+      return;
+    }
+
     const fetchVariants = async () => {
       const responses = await Promise.all(
         pokemonSpecies.varieties.map((variant) => fetch_pokemon(variant.pokemon.name))

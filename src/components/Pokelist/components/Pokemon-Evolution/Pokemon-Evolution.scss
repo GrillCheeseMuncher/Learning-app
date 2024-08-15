@@ -33,8 +33,31 @@
         display: grid;
         justify-items: center;
 
-        .current-pokemon {
-          color: var(--red);
+        .evolution-picture {
+          width: 140px;
+          height: 140px;
+          transition: 0.2s ease-in-out;
+          cursor: pointer;
+        }
+
+        .evolution-text {
+          transition: 0.2s ease-in-out;
+          &.current-pokemon {
+            color: var(--red);
+          }
+        }
+
+        &:hover {
+          .evolution-picture:not(.current-pokemon-picture) {
+            transform: scale(110%);
+            transition: 0.2s ease-in-out;
+            cursor: pointer;
+          }
+
+          .evolution-text:not(.current-pokemon) {
+            transition: 0.2s ease-in-out;
+            color: var(--dark);
+          }
         }
       }
 
