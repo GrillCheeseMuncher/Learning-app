@@ -9,7 +9,8 @@ interface ListName {
 
 const listNames: ListName[] = [
   { name: 'POKELIST', id: 1 },
-  { name: 'SETTINGS', id: 2 },
+  { name: 'FAVORITES', id: 2 },
+  { name: 'SETTINGS', id: 3 },
 ];
 
 export const Header = () => {
