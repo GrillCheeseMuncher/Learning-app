@@ -1,0 +1,33 @@
+.pokemon-color {
+  &.red {
+    background-color: #f54c4c;
+  }
+  &.blue {
+    background-color: #8098fd;
+  }
+  &.yellow {
+    background-color: #faee2d;
+  }
+  &.green {
+    background-color: #5fcb5c;
+  }
+  &.black {
+    background-color: #232323;
+    color: white;
+  }
+  &.brown {
+    background-color: #d89948;
+  }
+  &.purple {
+    background-color: #be7fff;
+  }
+  &.gray {
+    background-color: #bcbcbc;
+  }
+  &.white {
+    background-color: #ffffff;
+  }
+  &.pink {
+    background-color: #ff9ec7;
+  }
+}

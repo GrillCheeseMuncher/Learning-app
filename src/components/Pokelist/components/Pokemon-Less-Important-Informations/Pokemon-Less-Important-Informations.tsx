@@ -1,5 +1,6 @@
 import { PokemonSpeciesWithEvolutionChain } from '../../../../API/types';
 import './Pokemon-Less-Important-Informations.scss';
+import './Pokemon-Less-Important-Informations-Fixed.scss';
 
 interface PokemonLessImportantInformationsPropos {
   pokemonSpecies: PokemonSpeciesWithEvolutionChain;

@@ -1,5 +1,6 @@
 import { Pokemon, PokemonSpeciesWithEvolutionChain } from '../../../../API/types';
 import './Pokemon-Stats.scss';
+import './Pokemon-Stats-Fixed.scss';
 
 interface PokemonStatsProps {
   pokemon: Pokemon;

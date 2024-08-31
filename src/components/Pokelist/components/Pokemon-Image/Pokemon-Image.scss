@@ -1,7 +1,17 @@
+@import '../../../../styles/mixins.scss';
+
 .pokelist-description-image {
   position: relative;
   background-color: var(--violet);
   border-radius: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include respond(tab-land) {
+    width: 300px;
+  }
 
   .pokeimg {
     width: 300px;

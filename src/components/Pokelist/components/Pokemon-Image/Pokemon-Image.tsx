@@ -6,18 +6,41 @@ interface PokemonImageProps {
   pokemon: Pokemon;
 }
 
+interface LikedLocalStorage {
+  liked: number[];
+}
+
 const PokemonImage: React.FC<PokemonImageProps> = ({ pokemon }) => {
   const [isLiked, setIsLiked] = useState<boolean>(false);
 
   useEffect(() => {
-    const likedStatus = localStorage.getItem(`liked-${pokemon.id}`);
-    setIsLiked(likedStatus === 'true');
+    const likedStatus = localStorage.getItem(`liked`);
+    if (!likedStatus) return;
+
+    const likedStatusArray = (JSON.parse(likedStatus) as LikedLocalStorage).liked;
+
+    if (likedStatusArray) {
+      setIsLiked(likedStatusArray.some((id) => id === pokemon.id));
+    }
   }, [pokemon.id]);
 
   const handleLikeClick = () => {
     const newLikedStatus = !isLiked;
     setIsLiked(newLikedStatus);
-    localStorage.setItem(`liked-${pokemon.id}`, newLikedStatus.toString());
+
+    const likedStatus = localStorage.getItem(`liked`);
+    let likedStatusArray: number[] = [];
+
+    if (likedStatus) {
+      likedStatusArray = (JSON.parse(likedStatus) as LikedLocalStorage).liked;
+    }
+
+    if (newLikedStatus) {
+      localStorage.setItem('liked', JSON.stringify({ liked: [...likedStatusArray, pokemon.id] }));
+    } else {
+      const filteredArray: number[] = likedStatusArray.filter((id) => pokemon.id !== id);
+      localStorage.setItem('liked', JSON.stringify({ liked: filteredArray }));
+    }
   };
 
   return (

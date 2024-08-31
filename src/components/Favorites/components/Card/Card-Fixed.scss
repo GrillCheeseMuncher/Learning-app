@@ -1,0 +1,686 @@
+$normal: #828282;
+$grass: #439937;
+$fire: #e5613e;
+$water: #309ae2;
+$electric: #e0bd28;
+$rock: #aaa581;
+$fighting: #e59121;
+$psychic: #ea6c8d;
+$ghost: #6f4570;
+$poison: #9454cc;
+$flying: #74abd1;
+$ground: #a5733c;
+$dragon: #576fbd;
+$ice: #47c9c9;
+$bug: #a0a028;
+$steel: #6badc9;
+$dark: #4f4747;
+$fairy: #e28de2;
+
+.card-image-background {
+  &.fairy.fighting {
+    background: linear-gradient(45deg, $fairy 50%, $fighting 50%);
+  }
+
+  &.fairy.normal {
+    background: linear-gradient(45deg, $fairy 50%, $normal 50%);
+  }
+
+  &.fairy.psychic {
+    background: linear-gradient(45deg, $fairy 50%, $psychic 50%);
+  }
+
+  &.fairy.fire {
+    background: linear-gradient(45deg, $fairy 50%, $fire 50%);
+  }
+
+  &.fairy.water {
+    background: linear-gradient(45deg, $fairy 50%, $water 50%);
+  }
+
+  &.fairy.electric {
+    background: linear-gradient(45deg, $fairy 50%, $electric 50%);
+  }
+
+  &.fairy.rock {
+    background: linear-gradient(45deg, $fairy 50%, $rock 50%);
+  }
+
+  &.fairy.ghost {
+    background: linear-gradient(45deg, $fairy 50%, $ghost 50%);
+  }
+
+  &.fairy.poison {
+    background: linear-gradient(45deg, $fairy 50%, $poison 50%);
+  }
+
+  &.fairy.flying {
+    background: linear-gradient(45deg, $fairy 50%, $flying 50%);
+  }
+
+  &.fairy.ground {
+    background: linear-gradient(45deg, $fairy 50%, $ground 50%);
+  }
+
+  &.fairy.dragon {
+    background: linear-gradient(45deg, $fairy 50%, $dragon 50%);
+  }
+
+  &.fairy.ice {
+    background: linear-gradient(45deg, $fairy 50%, $ice 50%);
+  }
+
+  &.fairy.bug {
+    background: linear-gradient(45deg, $fairy 50%, $bug 50%);
+  }
+
+  &.fairy.steel {
+    background: linear-gradient(45deg, $fairy 50%, $steel 50%);
+  }
+
+  &.fairy.dark {
+    background: linear-gradient(45deg, $fairy 50%, $dark 50%);
+  }
+
+  &.fighting.normal {
+    background: linear-gradient(45deg, $fighting 50%, $normal 50%);
+  }
+
+  &.fighting.psychic {
+    background: linear-gradient(45deg, $fighting 50%, $psychic 50%);
+  }
+
+  &.fighting.fire {
+    background: linear-gradient(45deg, $fighting 50%, $fire 50%);
+  }
+
+  &.fighting.water {
+    background: linear-gradient(45deg, $fighting 50%, $water 50%);
+  }
+
+  &.fighting.electric {
+    background: linear-gradient(45deg, $fighting 50%, $electric 50%);
+  }
+
+  &.fighting.rock {
+    background: linear-gradient(45deg, $fighting 50%, $rock 50%);
+  }
+
+  &.fighting.ghost {
+    background: linear-gradient(45deg, $fighting 50%, $ghost 50%);
+  }
+
+  &.fighting.poison {
+    background: linear-gradient(45deg, $fighting 50%, $poison 50%);
+  }
+
+  &.fighting.flying {
+    background: linear-gradient(45deg, $fighting 50%, $flying 50%);
+  }
+
+  &.fighting.ground {
+    background: linear-gradient(45deg, $fighting 50%, $ground 50%);
+  }
+
+  &.fighting.dragon {
+    background: linear-gradient(45deg, $fighting 50%, $dragon 50%);
+  }
+
+  &.fighting.ice {
+    background: linear-gradient(45deg, $fighting 50%, $ice 50%);
+  }
+
+  &.fighting.bug {
+    background: linear-gradient(45deg, $fighting 50%, $bug 50%);
+  }
+
+  &.fighting.steel {
+    background: linear-gradient(45deg, $fighting 50%, $steel 50%);
+  }
+
+  &.fighting.dark {
+    background: linear-gradient(45deg, $fighting 50%, $dark 50%);
+  }
+
+  &.normal.psychic {
+    background: linear-gradient(45deg, $normal 50%, $psychic 50%);
+  }
+
+  &.normal.fire {
+    background: linear-gradient(45deg, $normal 50%, $fire 50%);
+  }
+
+  &.normal.water {
+    background: linear-gradient(45deg, $normal 50%, $water 50%);
+  }
+
+  &.normal.electric {
+    background: linear-gradient(45deg, $normal 50%, $electric 50%);
+  }
+
+  &.normal.rock {
+    background: linear-gradient(45deg, $normal 50%, $rock 50%);
+  }
+
+  &.normal.ghost {
+    background: linear-gradient(45deg, $normal 50%, $ghost 50%);
+  }
+
+  &.normal.poison {
+    background: linear-gradient(45deg, $normal 50%, $poison 50%);
+  }
+
+  &.normal.flying {
+    background: linear-gradient(45deg, $normal 50%, $flying 50%);
+  }
+
+  &.normal.ground {
+    background: linear-gradient(45deg, $normal 50%, $ground 50%);
+  }
+
+  &.normal.dragon {
+    background: linear-gradient(45deg, $normal 50%, $dragon 50%);
+  }
+
+  &.normal.ice {
+    background: linear-gradient(45deg, $normal 50%, $ice 50%);
+  }
+
+  &.normal.bug {
+    background: linear-gradient(45deg, $normal 50%, $bug 50%);
+  }
+
+  &.normal.steel {
+    background: linear-gradient(45deg, $normal 50%, $steel 50%);
+  }
+
+  &.normal.dark {
+    background: linear-gradient(45deg, $normal 50%, $dark 50%);
+  }
+
+  &.psychic.fire {
+    background: linear-gradient(45deg, $psychic 50%, $fire 50%);
+  }
+
+  &.psychic.water {
+    background: linear-gradient(45deg, $psychic 50%, $water 50%);
+  }
+
+  &.psychic.electric {
+    background: linear-gradient(45deg, $psychic 50%, $electric 50%);
+  }
+
+  &.psychic.rock {
+    background: linear-gradient(45deg, $psychic 50%, $rock 50%);
+  }
+
+  &.psychic.ghost {
+    background: linear-gradient(45deg, $psychic 50%, $ghost 50%);
+  }
+
+  &.psychic.poison {
+    background: linear-gradient(45deg, $psychic 50%, $poison 50%);
+  }
+
+  &.psychic.flying {
+    background: linear-gradient(45deg, $psychic 50%, $flying 50%);
+  }
+
+  &.psychic.ground {
+    background: linear-gradient(45deg, $psychic 50%, $ground 50%);
+  }
+
+  &.psychic.dragon {
+    background: linear-gradient(45deg, $psychic 50%, $dragon 50%);
+  }
+
+  &.psychic.ice {
+    background: linear-gradient(45deg, $psychic 50%, $ice 50%);
+  }
+
+  &.psychic.bug {
+    background: linear-gradient(45deg, $psychic 50%, $bug 50%);
+  }
+
+  &.psychic.steel {
+    background: linear-gradient(45deg, $psychic 50%, $steel 50%);
+  }
+
+  &.psychic.dark {
+    background: linear-gradient(45deg, $psychic 50%, $dark 50%);
+  }
+
+  &.fire.water {
+    background: linear-gradient(45deg, $fire 50%, $water 50%);
+  }
+
+  &.fire.electric {
+    background: linear-gradient(45deg, $fire 50%, $electric 50%);
+  }
+
+  &.fire.rock {
+    background: linear-gradient(45deg, $fire 50%, $rock 50%);
+  }
+
+  &.fire.ghost {
+    background: linear-gradient(45deg, $fire 50%, $ghost 50%);
+  }
+
+  &.fire.poison {
+    background: linear-gradient(45deg, $fire 50%, $poison 50%);
+  }
+
+  &.fire.flying {
+    background: linear-gradient(45deg, $fire 50%, $flying 50%);
+  }
+
+  &.fire.ground {
+    background: linear-gradient(45deg, $fire 50%, $ground 50%);
+  }
+
+  &.fire.dragon {
+    background: linear-gradient(45deg, $fire 50%, $dragon 50%);
+  }
+
+  &.fire.ice {
+    background: linear-gradient(45deg, $fire 50%, $ice 50%);
+  }
+
+  &.fire.bug {
+    background: linear-gradient(45deg, $fire 50%, $bug 50%);
+  }
+
+  &.fire.steel {
+    background: linear-gradient(45deg, $fire 50%, $steel 50%);
+  }
+
+  &.fire.dark {
+    background: linear-gradient(45deg, $fire 50%, $dark 50%);
+  }
+
+  &.water.electric {
+    background: linear-gradient(45deg, $water 50%, $electric 50%);
+  }
+
+  &.water.rock {
+    background: linear-gradient(45deg, $water 50%, $rock 50%);
+  }
+
+  &.water.ghost {
+    background: linear-gradient(45deg, $water 50%, $ghost 50%);
+  }
+
+  &.water.poison {
+    background: linear-gradient(45deg, $water 50%, $poison 50%);
+  }
+
+  &.water.flying {
+    background: linear-gradient(45deg, $water 50%, $flying 50%);
+  }
+
+  &.water.ground {
+    background: linear-gradient(45deg, $water 50%, $ground 50%);
+  }
+
+  &.water.dragon {
+    background: linear-gradient(45deg, $water 50%, $dragon 50%);
+  }
+
+  &.water.ice {
+    background: linear-gradient(45deg, $water 50%, $ice 50%);
+  }
+
+  &.water.bug {
+    background: linear-gradient(45deg, $water 50%, $bug 50%);
+  }
+
+  &.water.steel {
+    background: linear-gradient(45deg, $water 50%, $steel 50%);
+  }
+
+  &.water.dark {
+    background: linear-gradient(45deg, $water 50%, $dark 50%);
+  }
+
+  &.electric.rock {
+    background: linear-gradient(45deg, $electric 50%, $rock 50%);
+  }
+
+  &.electric.ghost {
+    background: linear-gradient(45deg, $electric 50%, $ghost 50%);
+  }
+
+  &.electric.poison {
+    background: linear-gradient(45deg, $electric 50%, $poison 50%);
+  }
+
+  &.electric.flying {
+    background: linear-gradient(45deg, $electric 50%, $flying 50%);
+  }
+
+  &.electric.ground {
+    background: linear-gradient(45deg, $electric 50%, $ground 50%);
+  }
+
+  &.electric.dragon {
+    background: linear-gradient(45deg, $electric 50%, $dragon 50%);
+  }
+
+  &.electric.ice {
+    background: linear-gradient(45deg, $electric 50%, $ice 50%);
+  }
+
+  &.electric.bug {
+    background: linear-gradient(45deg, $electric 50%, $bug 50%);
+  }
+
+  &.electric.steel {
+    background: linear-gradient(45deg, $electric 50%, $steel 50%);
+  }
+
+  &.electric.dark {
+    background: linear-gradient(45deg, $electric 50%, $dark 50%);
+  }
+
+  &.rock.ghost {
+    background: linear-gradient(45deg, $rock 50%, $ghost 50%);
+  }
+
+  &.rock.poison {
+    background: linear-gradient(45deg, $rock 50%, $poison 50%);
+  }
+
+  &.rock.flying {
+    background: linear-gradient(45deg, $rock 50%, $flying 50%);
+  }
+
+  &.rock.ground {
+    background: linear-gradient(45deg, $rock 50%, $ground 50%);
+  }
+
+  &.rock.dragon {
+    background: linear-gradient(45deg, $rock 50%, $dragon 50%);
+  }
+
+  &.rock.ice {
+    background: linear-gradient(45deg, $rock 50%, $ice 50%);
+  }
+
+  &.rock.bug {
+    background: linear-gradient(45deg, $rock 50%, $bug 50%);
+  }
+
+  &.rock.steel {
+    background: linear-gradient(45deg, $rock 50%, $steel 50%);
+  }
+
+  &.rock.dark {
+    background: linear-gradient(45deg, $rock 50%, $dark 50%);
+  }
+
+  &.ghost.poison {
+    background: linear-gradient(45deg, $ghost 50%, $poison 50%);
+  }
+
+  &.ghost.flying {
+    background: linear-gradient(45deg, $ghost 50%, $flying 50%);
+  }
+
+  &.ghost.ground {
+    background: linear-gradient(45deg, $ghost 50%, $ground 50%);
+  }
+
+  &.ghost.dragon {
+    background: linear-gradient(45deg, $ghost 50%, $dragon 50%);
+  }
+
+  &.ghost.ice {
+    background: linear-gradient(45deg, $ghost 50%, $ice 50%);
+  }
+
+  &.ghost.bug {
+    background: linear-gradient(45deg, $ghost 50%, $bug 50%);
+  }
+
+  &.ghost.steel {
+    background: linear-gradient(45deg, $ghost 50%, $steel 50%);
+  }
+
+  &.ghost.dark {
+    background: linear-gradient(45deg, $ghost 50%, $dark 50%);
+  }
+
+  &.poison.flying {
+    background: linear-gradient(45deg, $poison 50%, $flying 50%);
+  }
+
+  &.poison.ground {
+    background: linear-gradient(45deg, $poison 50%, $ground 50%);
+  }
+
+  &.poison.dragon {
+    background: linear-gradient(45deg, $poison 50%, $dragon 50%);
+  }
+
+  &.poison.ice {
+    background: linear-gradient(45deg, $poison 50%, $ice 50%);
+  }
+
+  &.poison.bug {
+    background: linear-gradient(45deg, $poison 50%, $bug 50%);
+  }
+
+  &.poison.steel {
+    background: linear-gradient(45deg, $poison 50%, $steel 50%);
+  }
+
+  &.poison.dark {
+    background: linear-gradient(45deg, $poison 50%, $dark 50%);
+  }
+
+  &.flying.ground {
+    background: linear-gradient(45deg, $flying 50%, $ground 50%);
+  }
+
+  &.flying.dragon {
+    background: linear-gradient(45deg, $flying 50%, $dragon 50%);
+  }
+
+  &.flying.ice {
+    background: linear-gradient(45deg, $flying 50%, $ice 50%);
+  }
+
+  &.flying.bug {
+    background: linear-gradient(45deg, $flying 50%, $bug 50%);
+  }
+
+  &.flying.steel {
+    background: linear-gradient(45deg, $flying 50%, $steel 50%);
+  }
+
+  &.flying.dark {
+    background: linear-gradient(45deg, $flying 50%, $dark 50%);
+  }
+
+  &.ground.dragon {
+    background: linear-gradient(45deg, $ground 50%, $dragon 50%);
+  }
+
+  &.ground.ice {
+    background: linear-gradient(45deg, $ground 50%, $ice 50%);
+  }
+
+  &.ground.bug {
+    background: linear-gradient(45deg, $ground 50%, $bug 50%);
+  }
+
+  &.ground.steel {
+    background: linear-gradient(45deg, $ground 50%, $steel 50%);
+  }
+
+  &.ground.dark {
+    background: linear-gradient(45deg, $ground 50%, $dark 50%);
+  }
+
+  &.dragon.ice {
+    background: linear-gradient(45deg, $dragon 50%, $ice 50%);
+  }
+
+  &.dragon.bug {
+    background: linear-gradient(45deg, $dragon 50%, $bug 50%);
+  }
+
+  &.dragon.steel {
+    background: linear-gradient(45deg, $dragon 50%, $steel 50%);
+  }
+
+  &.dragon.dark {
+    background: linear-gradient(45deg, $dragon 50%, $dark 50%);
+  }
+
+  &.ice.bug {
+    background: linear-gradient(45deg, $ice 50%, $bug 50%);
+  }
+
+  &.ice.steel {
+    background: linear-gradient(45deg, $ice 50%, $steel 50%);
+  }
+
+  &.ice.dark {
+    background: linear-gradient(45deg, $ice 50%, $dark 50%);
+  }
+
+  &.bug.steel {
+    background: linear-gradient(45deg, $bug 50%, $steel 50%);
+  }
+
+  &.bug.dark {
+    background: linear-gradient(45deg, $bug 50%, $dark 50%);
+  }
+
+  &.steel.dark {
+    background: linear-gradient(45deg, $steel 50%, $dark 50%);
+  }
+
+  &.normal {
+    background-color: $normal;
+  }
+  &.grass {
+    background-color: $grass;
+  }
+  &.fire {
+    background-color: $fire;
+  }
+  &.water {
+    background-color: $water;
+  }
+  &.electric {
+    background-color: $electric;
+  }
+  &.rock {
+    background-color: $rock;
+  }
+  &.fighting {
+    background-color: $fighting;
+  }
+  &.psychic {
+    background-color: $psychic;
+  }
+  &.ghost {
+    background-color: $ghost;
+  }
+  &.poison {
+    background-color: $poison;
+  }
+  &.flying {
+    background-color: $flying;
+  }
+  &.ground {
+    background-color: $ground;
+  }
+  &.dragon {
+    background-color: $dragon;
+  }
+  &.ice {
+    background-color: $ice;
+  }
+  &.bug {
+    background-color: $bug;
+  }
+  &.steel {
+    background-color: $steel;
+  }
+  &.dark {
+    background-color: $dark;
+  }
+  &.fairy {
+    background-color: $fairy;
+  }
+
+  .card-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--violet);
+    width: 275px;
+    height: 275px;
+    border-radius: 100rem;
+  }
+}
+
+.card-type {
+  &.normal {
+    background-color: $normal;
+  }
+  &.grass {
+    background-color: $grass;
+  }
+  &.fire {
+    background-color: $fire;
+  }
+  &.water {
+    background-color: $water;
+  }
+  &.electric {
+    background-color: $electric;
+  }
+  &.rock {
+    background-color: $rock;
+  }
+  &.fighting {
+    background-color: $fighting;
+  }
+  &.psychic {
+    background-color: $psychic;
+  }
+  &.ghost {
+    background-color: $ghost;
+  }
+  &.poison {
+    background-color: $poison;
+  }
+  &.flying {
+    background-color: $flying;
+  }
+  &.ground {
+    background-color: $ground;
+  }
+  &.dragon {
+    background-color: $dragon;
+  }
+  &.ice {
+    background-color: $ice;
+  }
+  &.bug {
+    background-color: $bug;
+  }
+  &.steel {
+    background-color: $steel;
+  }
+  &.dark {
+    background-color: $dark;
+  }
+  &.fairy {
+    background-color: $fairy;
+  }
+}

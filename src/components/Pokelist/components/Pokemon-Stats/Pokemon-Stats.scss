@@ -1,3 +1,5 @@
+@import '../../../../styles/mixins.scss';
+
 .all-stats-container {
   text-align: center;
   display: grid;
@@ -14,11 +16,15 @@
 
   .stats-container {
     display: grid;
-    gap: 6px;
+    gap: 10px;
     grid-template-columns: 1fr 1fr 1fr;
     background-color: var(--violet);
     padding: 10px;
     border-radius: 0 0 10px 10px;
+
+    @include respond(tab-land) {
+      gap: 6px;
+    }
 
     .stats-container-each-stat {
       display: grid;

@@ -1,0 +1,29 @@
+@import '../../styles/mixins.scss';
+.favorite-body {
+  --header-margin: 86px;
+
+  margin-top: var(--header-margin);
+  position: relative;
+  background-color: var(--dark);
+  height: calc(100vh - var(--header-margin));
+  padding: 2rem;
+  overflow-y: auto;
+
+  @include respond(tab-land) {
+    --header-margin: 205.75px;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cards-container {
+    display: grid;
+    width: fit-content;
+    gap: 2rem;
+
+    @include respond(tab-land) {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+  }
+}

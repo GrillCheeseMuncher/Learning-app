@@ -7,15 +7,19 @@ interface ListName {
   id: number;
 }
 
+interface HeaderProps {
+  currentlistid: number;
+  handleclick: (id: number) => void;
+}
+
 const listNames: ListName[] = [
-  { name: 'POKELIST', id: 1 },
-  { name: 'FAVORITES', id: 2 },
-  { name: 'SETTINGS', id: 3 },
+  { name: 'POKELIST', id: 0 },
+  { name: 'FAVORITES', id: 1 },
+  { name: 'SETTINGS', id: 2 },
 ];
 
-export const Header = () => {
+export const Header = ({ currentlistid, handleclick }: HeaderProps) => {
   const [isClicked, setIsClicked] = useState(false);
-  const [currentListId, setCurrentListId] = useState<number>(1);
 
   const handleClick = () => {
     setIsClicked(!isClicked);
@@ -23,13 +27,13 @@ export const Header = () => {
 
   const list = listNames.map((item) => {
     const handleListClick = () => {
-      setCurrentListId(item.id);
+      handleclick(item.id);
     };
 
     return (
       <li
         key={item.id}
-        className={`menu_li${currentListId === item.id ? ' active' : ''}`}
+        className={`menu_li${currentlistid === item.id ? ' active' : ''}`}
         onClick={handleListClick}
       >
         {item.name}

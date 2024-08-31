@@ -1,5 +1,6 @@
 import { PokemonSpeciesWithEvolutionChain } from '../../../../API/types';
 import './Pokemon-Breeding.scss';
+import './Pokemon-Breeding-Fixed.scss';
 
 interface PokemonBreedingsProps {
   pokemonSpecies: PokemonSpeciesWithEvolutionChain;

@@ -1,9 +1,15 @@
+@import '../../../../styles/mixins.scss';
+
 .less-important-informations {
   display: grid;
   gap: 5px;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   width: 100%;
+
+  @include respond(tab-land) {
+    margin-bottom: 10px;
+  }
 
   .pokemon-less-important-container {
     display: grid;
@@ -39,38 +45,6 @@
       margin: 0 10px;
       border-radius: 5px;
       font-size: 1.5rem;
-
-      &.red {
-        background-color: #f54c4c;
-      }
-      &.blue {
-        background-color: #8098fd;
-      }
-      &.yellow {
-        background-color: #faee2d;
-      }
-      &.green {
-        background-color: #5fcb5c;
-      }
-      &.black {
-        background-color: #232323;
-        color: white;
-      }
-      &.brown {
-        background-color: #d89948;
-      }
-      &.purple {
-        background-color: #be7fff;
-      }
-      &.gray {
-        background-color: #bcbcbc;
-      }
-      &.white {
-        background-color: #ffffff;
-      }
-      &.pink {
-        background-color: #ff9ec7;
-      }
     }
 
     .pokemon-small-white-box {

@@ -16,14 +16,10 @@ import './Pokelist.scss';
 interface PokelistProps {
   pokedex: PokedexIndexPokemon[];
   setPokedex: React.Dispatch<React.SetStateAction<PokedexIndexPokemon[]>>;
+  idConverter: (number: number) => string;
+  capitalizeFirstLetter: (string: string) => string;
+  modifiedPokemonName: (name: string) => string;
 }
-
-const capitalizeFirstLetter = (string: string) => {
-  return string
-    .split('-')
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-    .join(' ');
-};
 
 const propotionsFixed = (value: number) => (value / 10).toFixed(1);
 
@@ -39,11 +35,13 @@ const abbreviationConverter = (stat: string) => {
   return stats[stat];
 };
 
-const idConverter = (number: number) => {
-  return `#${number.toString().padStart(4, '0')}`;
-};
-
-export const Pokelist = ({ pokedex, setPokedex }: PokelistProps) => {
+export const Pokelist = ({
+  pokedex,
+  setPokedex,
+  idConverter,
+  capitalizeFirstLetter,
+  modifiedPokemonName,
+}: PokelistProps) => {
   const [pokemonList, setPokemonList] = useState<PokedexIndexPokemon[]>(pokedex);
   const [pokemonName, setPokemonName] = useState<string>('');
   const [currentPokemon, setCurrentPokemon] = useState<number | undefined>(undefined);
@@ -51,8 +49,8 @@ export const Pokelist = ({ pokedex, setPokedex }: PokelistProps) => {
   const [pokemonSpecies, setPokemonSpecies] = useState<
     PokemonSpeciesWithEvolutionChain | undefined
   >(undefined);
-
   const [selectedVariant, setSelectedVariant] = useState<Pokemon | undefined>(undefined);
+  const [isRightPanelVisible, setIsRightPanelVisible] = useState<boolean>(false);
 
   useEffect(() => {
     if (pokemonName.startsWith('#')) {
@@ -89,8 +87,11 @@ export const Pokelist = ({ pokedex, setPokedex }: PokelistProps) => {
     setPokedex(pokeNumberSort);
   };
 
-  const modifiedPokemonName = (name: string) => {
-    return name.replace('-disguised', '');
+  const modifiedPokemonNameList = (name: string): string => {
+    let modifiedName = name.replace('-disguised', '');
+    modifiedName = modifiedName.replace('-midday', '');
+
+    return modifiedName;
   };
 
   const handleChainClick = (pokemon: Pokemon) => {
@@ -102,34 +103,39 @@ export const Pokelist = ({ pokedex, setPokedex }: PokelistProps) => {
     });
   };
 
+  const handleCurrentPokemon = (pokemon: PokedexIndexPokemon) => {
+    setCurrentPokemon(pokemon.id);
+    fetch_pokemon(pokemon.name).then((pokemonData) => {
+      setPokemon(pokemonData);
+      setSelectedVariant(undefined);
+      setIsRightPanelVisible(true); // Show the right panel on mobile
+    });
+    fetch_pokemon_species(pokemon.id).then((res) => {
+      setPokemonSpecies(res);
+    });
+  };
+
+  const handleCloseRightPanel = () => {
+    setIsRightPanelVisible(false); // Hide the right panel when closing
+  };
+
   const pokeListMapper = pokemonList.map((pokemon) => {
     if (pokemon.id >= 10000) {
       return null;
     }
 
-    const handleCurrentPokemon = () => {
-      setCurrentPokemon(pokemon.id);
-      fetch_pokemon(pokemon.name).then((pokemon) => {
-        setPokemon(pokemon);
-        setSelectedVariant(undefined);
-      });
-      fetch_pokemon_species(pokemon.id).then((res) => {
-        setPokemonSpecies(res);
-      });
-    };
-
-    const displayedPokemonName = modifiedPokemonName(pokemon.name);
-
     return (
       <li
         key={pokemon.name}
         className={`pokelist-items${currentPokemon === pokemon.id ? ' active' : ''}`}
-        onClick={handleCurrentPokemon}
+        onClick={() => handleCurrentPokemon(pokemon)} // Pass the pokemon to the handler
       >
         <span className="item-content">
           {pokemon && pokemon.id < 10000 ? idConverter(pokemon.id) : ''}
         </span>
-        <span className="item-content">{capitalizeFirstLetter(displayedPokemonName)} </span>
+        <span className="item-content">
+          {capitalizeFirstLetter(modifiedPokemonNameList(pokemon.name))}{' '}
+        </span>
       </li>
     );
   });
@@ -147,9 +153,12 @@ export const Pokelist = ({ pokedex, setPokedex }: PokelistProps) => {
           <div className="pokelist-grid">{pokeListMapper}</div>
         </div>
       </div>
-      <div className="pokelist-right">
+      <div className={`pokelist-right${isRightPanelVisible ? ' visible' : ''}`}>
         {pokemon && pokemonSpecies ? (
           <div className="pokelist-description">
+            <button className="right-close-panel" onClick={handleCloseRightPanel}>
+              Close
+            </button>
             <div className="pokelist-description-left-container">
               <PokemonImage pokemon={selectedVariant || pokemon} />
               <div className="pokelist-description-information">

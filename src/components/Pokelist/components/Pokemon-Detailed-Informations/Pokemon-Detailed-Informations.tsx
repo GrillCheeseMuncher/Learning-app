@@ -1,5 +1,6 @@
 import { Pokemon, PokemonSpeciesWithEvolutionChain } from '../../../../API/types';
 import './Pokemon-Detailed-Informations.scss';
+import './Pokemon-Detailed-Informations-Fixed.scss';
 
 export interface PokemonDetailedInformationsProps {
   pokemon: Pokemon;

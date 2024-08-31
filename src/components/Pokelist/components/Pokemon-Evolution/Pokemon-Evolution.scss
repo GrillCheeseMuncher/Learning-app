@@ -1,3 +1,5 @@
+@import '../../../../styles/mixins.scss';
+
 .pokelist-evolution-container {
   display: grid;
   grid-template-rows: 44.5px 1fr;
@@ -34,17 +36,27 @@
         display: flex;
         align-items: center;
         justify-content: space-evenly;
-        width: 100%;
+        width: calc(100% - 20px);
+
+        @include respond(tab-land) {
+          width: 100%;
+        }
 
         .evolution-item {
           display: grid;
           justify-items: center;
 
           .evolution-picture {
-            width: 140px;
-            height: 140px;
+            width: 90px;
+            height: 90px;
             transition: 0.2s ease-in-out;
             cursor: pointer;
+
+            @include respond(tab-land) {
+              grid-template-columns: 1fr 2fr;
+              width: 140px;
+              height: 140px;
+            }
           }
 
           .evolution-text {
@@ -71,6 +83,14 @@
         .evolution-separator {
           font-size: 3rem;
           margin: 0 1rem;
+          width: 30px;
+          height: 30px;
+
+          @include respond(tab-land) {
+            grid-template-columns: 1fr 2fr;
+            width: 50px;
+            height: 50px;
+          }
         }
       }
     }
