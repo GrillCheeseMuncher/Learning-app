@@ -1,12 +1,14 @@
 import { Pokemon, PokemonSpeciesWithEvolutionChain } from '../../../../API/types';
 import './Pokemon-Detailed-Informations.scss';
 import './Pokemon-Detailed-Informations-Fixed.scss';
+import { ReactNode } from 'react';
 
 export interface PokemonDetailedInformationsProps {
   pokemon: Pokemon;
   pokemonSpecies: PokemonSpeciesWithEvolutionChain;
   capitalizeFirstLetter: (string: string) => string;
   propotionsFixed: (value: number) => string;
+  extraComponent?: ReactNode;
 }
 
 const PokemonDetailedInformations: React.FC<PokemonDetailedInformationsProps> = ({
@@ -14,6 +16,7 @@ const PokemonDetailedInformations: React.FC<PokemonDetailedInformationsProps> = 
   pokemonSpecies,
   capitalizeFirstLetter,
   propotionsFixed,
+  extraComponent,
 }) => {
   const grothRateConverter = (stat: string) => {
     const stats: { [key: string]: string } = {
@@ -28,8 +31,11 @@ const PokemonDetailedInformations: React.FC<PokemonDetailedInformationsProps> = 
     return stats[stat];
   };
 
+  const additionalComponent = extraComponent ? extraComponent : null;
+
   return (
     <div className="pokemon-information-container">
+      {additionalComponent}
       <div className="pokemon-type-information-container">
         <div className="pokemon-type-additional-text">Types</div>
         <div className="pokemon-type-container">

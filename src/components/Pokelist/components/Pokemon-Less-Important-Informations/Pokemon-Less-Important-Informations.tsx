@@ -5,11 +5,13 @@ import './Pokemon-Less-Important-Informations-Fixed.scss';
 interface PokemonLessImportantInformationsPropos {
   pokemonSpecies: PokemonSpeciesWithEvolutionChain;
   capitalizeFirstLetter: (stat: string) => string;
+  bottomMargin?: boolean;
 }
 
 const PokemonLessImportantInformations: React.FC<PokemonLessImportantInformationsPropos> = ({
   pokemonSpecies,
   capitalizeFirstLetter,
+  bottomMargin,
 }) => {
   const shapeImageConverter = () => {
     const shape = pokemonSpecies.shape.name;
@@ -38,7 +40,7 @@ const PokemonLessImportantInformations: React.FC<PokemonLessImportantInformation
   };
 
   return (
-    <div className="less-important-informations">
+    <div className={`less-important-informations ${bottomMargin ? 'margin-bottom' : ''}`}>
       <div className="pokemon-less-important-container shape">
         <span className="pokemon-less-text">Shape</span>
         <div className={pokemonSpecies.shape ? '' : 'pokemon-small-white-box'}>

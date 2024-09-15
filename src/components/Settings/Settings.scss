@@ -1,5 +1,8 @@
 .setting-body {
   background-color: var(--dark);
-  height: 100vh;
+  height: calc(100vh - var(--header-margin));
   width: 100vw;
+  margin-top: var(--header-margin);
+  overflow-y: scroll;
+  padding: 20px;
 }

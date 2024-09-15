@@ -36,6 +36,14 @@
       border-radius: 2rem;
     }
 
+    &.horizontal {
+      display: flex;
+      gap: 10px;
+      top: -10px;
+      left: 80px;
+      margin-left: 10px;
+    }
+
     .pokelist-filter-button-dropdown {
       margin-top: 1rem;
       display: block;

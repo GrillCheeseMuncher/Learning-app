@@ -108,7 +108,7 @@ export const Pokelist = ({
     fetch_pokemon(pokemon.name).then((pokemonData) => {
       setPokemon(pokemonData);
       setSelectedVariant(undefined);
-      setIsRightPanelVisible(true); // Show the right panel on mobile
+      setIsRightPanelVisible(true);
     });
     fetch_pokemon_species(pokemon.id).then((res) => {
       setPokemonSpecies(res);
@@ -116,7 +116,7 @@ export const Pokelist = ({
   };
 
   const handleCloseRightPanel = () => {
-    setIsRightPanelVisible(false); // Hide the right panel when closing
+    setIsRightPanelVisible(false);
   };
 
   const pokeListMapper = pokemonList.map((pokemon) => {
@@ -128,7 +128,7 @@ export const Pokelist = ({
       <li
         key={pokemon.name}
         className={`pokelist-items${currentPokemon === pokemon.id ? ' active' : ''}`}
-        onClick={() => handleCurrentPokemon(pokemon)} // Pass the pokemon to the handler
+        onClick={() => handleCurrentPokemon(pokemon)}
       >
         <span className="item-content">
           {pokemon && pokemon.id < 10000 ? idConverter(pokemon.id) : ''}
@@ -169,6 +169,7 @@ export const Pokelist = ({
                   displayedPokemonName={modifiedPokemonName(
                     selectedVariant?.name || pokemon?.name || ''
                   )}
+                  fixedHeight
                 />
                 <PokemonDetailedInformations
                   pokemon={selectedVariant || pokemon}
@@ -184,6 +185,7 @@ export const Pokelist = ({
                 <PokemonLessImportantInformations
                   pokemonSpecies={pokemonSpecies}
                   capitalizeFirstLetter={capitalizeFirstLetter}
+                  bottomMargin
                 />
               </div>
             </div>

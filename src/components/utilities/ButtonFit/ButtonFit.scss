@@ -1,4 +1,4 @@
-.guzior {
+.guzior-fit {
   margin-top: 10px;
   position: relative;
   border: none;
@@ -10,7 +10,7 @@
   user-select: none;
   touch-action: manipulation;
 
-  .guzior-3d {
+  .guzior-3d-fit {
     position: absolute;
     top: 0;
     left: 0;
@@ -26,10 +26,10 @@
     );
   }
 
-  .front {
+  .front-fit {
     display: block;
     position: relative;
-    padding: 12px 50px;
+    padding: 12px;
     border-radius: 12px;
     font-size: 3rem;
     color: white;
@@ -52,5 +52,14 @@
 
   &:hover {
     filter: brightness(110%);
+  }
+
+  .mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 35px;
+    width: 0px;
+    height: 0px;
   }
 }

@@ -18,6 +18,7 @@
   }
   .pokelist-forms {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
@@ -29,6 +30,7 @@
     font-size: 2rem;
 
     @include respond(tab-land) {
+      flex-direction: row;
       justify-content: space-around;
     }
 
@@ -44,14 +46,17 @@
         justify-items: center;
 
         .pokelist-form-image {
-          width: 140px;
-          height: 140px;
           cursor: pointer;
           transition: 0.2s ease-in-out;
 
           &:hover {
             transition: 0.2s ease-in-out;
             transform: scale(110%);
+          }
+
+          .pokelist-form-image-deep {
+            width: 200px;
+            height: 200px;
           }
         }
       }

@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Alice&family=Days+One&family=Podkova:wght@400..800&display=swap');
-
 @import './styles/normalize.scss';
+@import './styles/mixins.scss';
 
 :root {
   font-size: 62.5%; // 10px
   // colors
-  --dark: #12030b;
-  --darkviolet: #4d455f;
-  --violet: #beb7df;
+  --dark: #12030b; //background
+  --darkviolet: #4d455f; //card-background
+  --violet: #beb7df; //card-foreground
   --lightviolet: #ded9ff;
-  --red: #e00040;
+  --red: #e00040; //details
   // fonts
   --font-title: 'Days One', sans-serif;
   --font-primary: 'Podkova', serif;
@@ -17,4 +17,9 @@
   --font-title-weight: 700;
   --font-primary-weight: 800;
   --font-secondary-weight: normal;
+
+  --header-margin: 86px;
+  @include respond(tab-land) {
+    --header-margin: 205.75px;
+  }
 }

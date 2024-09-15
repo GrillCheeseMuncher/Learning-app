@@ -6,6 +6,7 @@ interface PokemonNametagProps {
   idConverter: (number: number) => string;
   capitalizeFirstLetter: (string: string) => string;
   displayedPokemonName: string;
+  fixedHeight?: boolean;
 }
 
 const PokemonNametag: React.FC<PokemonNametagProps> = ({
@@ -13,10 +14,13 @@ const PokemonNametag: React.FC<PokemonNametagProps> = ({
   capitalizeFirstLetter,
   idConverter,
   displayedPokemonName,
+  fixedHeight,
 }) => {
   return (
     <div
-      className={pokemon.id < 10000 ? `pokemon-name-container` : `pokemon-name-variant-container`}
+      className={`${
+        pokemon.id < 10000 ? 'pokemon-name-container' : 'pokemon-name-variant-container'
+      }${fixedHeight ? ' fixed-height' : ''}`}
     >
       <div className="pokemon-name">{capitalizeFirstLetter(displayedPokemonName)}</div>
       <div className="pokemon-id">{pokemon.id < 10000 ? idConverter(pokemon.id) : ''}</div>

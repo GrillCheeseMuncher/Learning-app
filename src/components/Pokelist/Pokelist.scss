@@ -164,9 +164,9 @@
         flex-direction: column;
         align-items: center;
         padding: 10px;
-        width: calc(100% - 20px);
 
         @include respond(tab-land) {
+          width: calc(100% - 20px);
           justify-content: flex-start;
           width: 300px;
         }

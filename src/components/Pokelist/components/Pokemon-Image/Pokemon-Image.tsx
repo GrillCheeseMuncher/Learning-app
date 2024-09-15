@@ -6,7 +6,7 @@ interface PokemonImageProps {
   pokemon: Pokemon;
 }
 
-interface LikedLocalStorage {
+export interface LikedLocalStorage {
   liked: number[];
 }
 
@@ -51,8 +51,8 @@ const PokemonImage: React.FC<PokemonImageProps> = ({ pokemon }) => {
       <img
         className="pokeimg"
         src={pokemon?.sprites.other['official-artwork'].front_default}
-        width="300"
-        height="300"
+        width="200"
+        height="200"
         alt={pokemon.name}
       />
     </div>

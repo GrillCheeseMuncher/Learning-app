@@ -1,6 +1,7 @@
 @import '../../styles/mixins.scss';
 .favorite-body {
-  --header-margin: 86px;
+  display: flex;
+  flex-direction: column;
 
   margin-top: var(--header-margin);
   position: relative;
@@ -9,18 +10,83 @@
   padding: 2rem;
   overflow-y: auto;
 
-  @include respond(tab-land) {
-    --header-margin: 205.75px;
-  }
-
   &::-webkit-scrollbar {
     display: none;
+  }
+  .pokelist-search-fav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    .pokelist-search-fav {
+      line-height: 28px;
+      padding-bottom: 2rem;
+
+      align-items: center;
+      max-width: 100%;
+      display: flex;
+      gap: 20px;
+      z-index: 1;
+
+      .pokelist-search-fav-bar {
+        width: 100%;
+        height: 80px;
+        line-height: 28px;
+        border: 2px solid transparent;
+        border-radius: 2rem;
+        background-color: #ececec;
+        color: #0d0c22;
+        transition: 0.3s ease;
+        font-size: 3rem;
+        padding: 0 1rem;
+
+        @include respond(tab-land) {
+          width: 500px;
+        }
+
+        &::placeholder {
+          color: #969696;
+          font-size: 3rem;
+        }
+
+        &:focus {
+          outline: none;
+          border: 2.5px solid var(--red);
+        }
+
+        &::-webkit-search-cancel-button {
+          -webkit-appearance: none;
+          height: 3.5rem;
+          width: 3.5rem;
+          margin-left: 1rem;
+          background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" width="24px" height="24px" fill="currentColor" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M18 6L6 18M6 6l12 12" stroke="%23636363" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3E%3C/path%3E%3C/svg%3E');
+          background-size: contain;
+          background-repeat: no-repeat;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .pokelist-search-fav-delete {
+      padding-bottom: 25px;
+
+      @include respond(tab-land) {
+        padding-bottom: 20px;
+      }
+    }
   }
 
   .cards-container {
     display: grid;
-    width: fit-content;
     gap: 2rem;
+    margin-bottom: 4rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     @include respond(tab-land) {
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr;

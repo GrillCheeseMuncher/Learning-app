@@ -4,7 +4,6 @@
   gap: 5px;
   width: 100%;
   font-weight: 600;
-  height: 57.5px;
   font-size: 2.5rem;
   text-align: center;
   color: var(--darkviolet);
@@ -28,7 +27,7 @@
 .pokemon-name-variant-container {
   width: 100%;
   font-weight: 600;
-  height: 57.5px;
+
   font-size: 2.5rem;
   text-align: center;
   color: var(--darkviolet);
@@ -41,4 +40,8 @@
     border-radius: 10px;
     height: 100%;
   }
+}
+
+.fixed-height {
+  height: 57.5px;
 }

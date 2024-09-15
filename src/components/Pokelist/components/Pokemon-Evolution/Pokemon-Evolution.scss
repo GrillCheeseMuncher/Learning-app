@@ -34,11 +34,13 @@
 
       .evolution-path {
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: space-evenly;
         width: calc(100% - 20px);
 
         @include respond(tab-land) {
+          flex-direction: row;
           width: 100%;
         }
 
@@ -47,8 +49,8 @@
           justify-items: center;
 
           .evolution-picture {
-            width: 90px;
-            height: 90px;
+            width: 180px;
+            height: 180px;
             transition: 0.2s ease-in-out;
             cursor: pointer;
 
@@ -82,14 +84,17 @@
 
         .evolution-separator {
           font-size: 3rem;
-          margin: 0 1rem;
-          width: 30px;
-          height: 30px;
+          margin: 2rem 1rem;
+          width: 50px;
+          height: 50px;
+          transform: rotate(90deg);
 
           @include respond(tab-land) {
             grid-template-columns: 1fr 2fr;
             width: 50px;
             height: 50px;
+            margin: 0 1rem;
+            transform: rotate(0deg);
           }
         }
       }
