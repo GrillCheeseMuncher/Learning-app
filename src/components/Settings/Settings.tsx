@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './Settings.scss';
 import { Theme } from './component/Theme/Theme';
 

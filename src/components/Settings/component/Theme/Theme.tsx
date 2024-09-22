@@ -10,9 +10,7 @@ enum StyleColorVariables {
   details = '--red',
 }
 
-interface ThemeProps {}
-
-export const Theme = ({}: ThemeProps) => {
+export const Theme = () => {
   const [colorBackground, setColorBackground] = useState<string>('');
   const [colorCardBackground, setCardBackground] = useState<string>('');
   const [colorCardForeground, setCardForeground] = useState<string>('');
@@ -110,7 +108,6 @@ export const Theme = ({}: ThemeProps) => {
               onChange={changeColor(StyleColorVariables.background)}
               color={colorBackground}
               disableAlpha={true}
-              onChangeComplete={closeAllPopups}
             />
           )}
         </div>
@@ -132,7 +129,6 @@ export const Theme = ({}: ThemeProps) => {
               onChange={changeColor(StyleColorVariables.cardBackground)}
               color={colorCardBackground}
               disableAlpha={true}
-              onChangeComplete={closeAllPopups}
             />
           )}
         </div>
@@ -154,7 +150,6 @@ export const Theme = ({}: ThemeProps) => {
               onChange={changeColor(StyleColorVariables.cardForeground)}
               color={colorCardForeground}
               disableAlpha={true}
-              onChangeComplete={closeAllPopups}
             />
           )}
         </div>
@@ -176,12 +171,11 @@ export const Theme = ({}: ThemeProps) => {
               onChange={changeColor(StyleColorVariables.details)}
               color={colorDetails}
               disableAlpha={true}
-              onChangeComplete={closeAllPopups}
             />
           )}
         </div>
       </div>
-      {<div className="setting-overlay" onClick={closeAllPopups}></div>}
+      {isPickerVisible && <div className="setting-overlay" onClick={closeAllPopups}></div>}
     </div>
   );
 };
