@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Card } from './components/Card/Card';
 import './Favorites.scss';
-import { PopupModal } from '../PopupModal/PopupModal';
+import { PopupModal } from './components/PopupModal/PopupModal';
 import FilterButton from '../FilterButton/FilterButton';
 import { Pokemon } from '../../API/types';
 import { fetch_pokemon } from '../../API';
-import { DeletePopupModal } from '../DeletePopupModal/DeletePopupModal';
+import { DeletePopupModal } from './components/DeletePopupModal/DeletePopupModal';
 import { ButtonFit } from '../utilities/ButtonFit/ButtonFit';
 
 interface FavoritesProps {

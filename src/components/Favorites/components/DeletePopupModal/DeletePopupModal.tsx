@@ -1,5 +1,4 @@
-import { Button } from '../utilities/Button/Button';
-import { ButtonFit } from '../utilities/ButtonFit/ButtonFit';
+import { Button } from '../../../utilities/Button/Button';
 import './DeletePopupModal.scss';
 
 interface DeletePopupModalProps {

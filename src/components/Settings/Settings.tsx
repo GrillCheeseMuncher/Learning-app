@@ -1,64 +1,59 @@
 import { useEffect, useState } from 'react';
 import './Settings.scss';
-import { ColorResult } from 'react-color';
-import Chrome from 'react-color/lib/components/chrome/Chrome';
+import { Theme } from './component/Theme/Theme';
 
-enum StyleColorVariables {
-  background = '--dark',
-  cardBackground = '--darkviolet',
-  cardForeground = '--violet',
-  details = '--red',
+interface SettingListName {
+  name: string;
+  id: number;
 }
 
+const settingListNames: SettingListName[] = [
+  { name: 'THEME', id: 0 },
+  { name: '???', id: 1 },
+  { name: '???', id: 2 },
+  { name: '???', id: 3 },
+  { name: '???', id: 4 },
+  { name: '???', id: 5 },
+  { name: '???', id: 6 },
+  { name: '???', id: 7 },
+];
+
 export const Settings = () => {
-  const [colorBackground, setColorBackground] = useState<string>('');
-  const [colorCardBackground, setCardBackground] = useState<string>('');
-  const [colorCardForeground, setCardForeground] = useState<string>('');
-  const [colorDetails, setColorDetails] = useState<string>('');
+  const [currentSettingListId, setCurrentSettingListId] = useState<number>(0);
 
-  useEffect(() => {
-    setColorBackground(
-      getComputedStyle(document.body).getPropertyValue(StyleColorVariables.background)
-    );
-    setCardBackground(
-      getComputedStyle(document.body).getPropertyValue(StyleColorVariables.cardBackground)
-    );
-    setCardForeground(
-      getComputedStyle(document.body).getPropertyValue(StyleColorVariables.cardForeground)
-    );
-    setColorDetails(getComputedStyle(document.body).getPropertyValue(StyleColorVariables.details));
-  }, []);
-
-  const changeColor = (variable: StyleColorVariables) => (color: ColorResult) => {
-    switch (variable) {
-      case StyleColorVariables.background:
-        setColorBackground(color.hex);
-        break;
-      case StyleColorVariables.cardBackground:
-        setCardBackground(color.hex);
-        break;
-      case StyleColorVariables.cardForeground:
-        setCardForeground(color.hex);
-        break;
-      case StyleColorVariables.details:
-        setColorDetails(color.hex);
-        break;
-    }
-    document.documentElement.style.setProperty(variable, color.hex);
+  const handleCurrentSettingListIdClick = (id: number) => {
+    setCurrentSettingListId(id);
   };
+
+  const settingList = settingListNames.map((item) => {
+    const handleSettingListClick = () => {
+      handleCurrentSettingListIdClick(item.id);
+    };
+
+    return (
+      <li
+        key={item.id}
+        className={`setting-menu-list-record${currentSettingListId === item.id ? ' active' : ''}`}
+        onClick={handleSettingListClick}
+      >
+        {item.name}
+      </li>
+    );
+  });
 
   return (
     <div className="setting-body">
-      <Chrome onChange={changeColor(StyleColorVariables.background)} color={colorBackground} />
-      <Chrome
-        onChange={changeColor(StyleColorVariables.cardBackground)}
-        color={colorCardBackground}
-      />
-      <Chrome
-        onChange={changeColor(StyleColorVariables.cardForeground)}
-        color={colorCardForeground}
-      />
-      <Chrome onChange={changeColor(StyleColorVariables.details)} color={colorDetails} />
+      <div className="setting-body-inside">
+        <div className="setting-body-inside-list">{settingList}</div>
+        <div className="setting-body-inside-content">
+          {currentSettingListId === 0 && <Theme />}
+          {currentSettingListId > 0 && (
+            <div className="setting-body-inside-content-construction">
+              The site is under construction
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 };

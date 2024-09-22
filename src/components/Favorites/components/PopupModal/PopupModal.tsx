@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import './PopupModal.scss';
-import { Pokemon, PokemonSpeciesWithEvolutionChain } from '../../API/types';
-import { fetch_pokemon, fetch_pokemon_species } from '../../API';
-import PokemonImage from '../Pokelist/components/Pokemon-Image/Pokemon-Image';
-import PokemonNametag from '../Pokelist/components/Pokemon-Nametag/Pokemon-Nametag';
-import PokemonDetailedInformations from '../Pokelist/components/Pokemon-Detailed-Informations/Pokemon-Detailed-Informations';
-import PokemonStats from '../Pokelist/components/Pokemon-Stats/Pokemon-Stats';
-import PokemonLessImportantInformations from '../Pokelist/components/Pokemon-Less-Important-Informations/Pokemon-Less-Important-Informations';
-import { Loader } from '../utilities/Loader/Loader';
+import { Pokemon, PokemonSpeciesWithEvolutionChain } from '../../../../API/types';
+import { fetch_pokemon, fetch_pokemon_species } from '../../../../API';
+import PokemonImage from '../../../Pokelist/components/Pokemon-Image/Pokemon-Image';
+import PokemonNametag from '../../../Pokelist/components/Pokemon-Nametag/Pokemon-Nametag';
+import PokemonDetailedInformations from '../../../Pokelist/components/Pokemon-Detailed-Informations/Pokemon-Detailed-Informations';
+import PokemonStats from '../../../Pokelist/components/Pokemon-Stats/Pokemon-Stats';
+import PokemonLessImportantInformations from '../../../Pokelist/components/Pokemon-Less-Important-Informations/Pokemon-Less-Important-Informations';
+import { Loader } from '../../../utilities/Loader/Loader';
 
 interface PopupModalProps {
   pokemonId: string;
