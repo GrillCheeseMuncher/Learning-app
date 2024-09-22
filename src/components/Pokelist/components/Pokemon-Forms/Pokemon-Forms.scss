@@ -1,0 +1,65 @@
+@import '../../../../styles/mixins.scss';
+
+.pokelist-forms-container {
+  display: grid;
+  grid-template-rows: 34.5px 1fr;
+  gap: 5px;
+  justify-items: center;
+  width: 100%;
+  font-weight: 600;
+
+  .pokelist-forms-additional-text {
+    font-size: 3rem;
+    background-color: var(--violet);
+    color: var(--darkviolet);
+    text-align: center;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+  }
+  .pokelist-forms {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: fit-content;
+    background-color: var(--violet);
+    color: var(--darkviolet);
+    border-radius: 0 0 10px 10px;
+    font-size: 2rem;
+
+    @include respond(tab-land) {
+      flex-direction: row;
+      justify-content: space-around;
+    }
+
+    .pokelist-form {
+      border-radius: 5px;
+      text-align: center;
+      width: 20%;
+      margin: 10px 0;
+
+      .pokelist-form-detailed {
+        display: grid;
+        justify-content: center;
+        justify-items: center;
+
+        .pokelist-form-image {
+          cursor: pointer;
+          transition: 0.2s ease-in-out;
+
+          &:hover {
+            transition: 0.2s ease-in-out;
+            transform: scale(110%);
+          }
+
+          .pokelist-form-image-deep {
+            width: 200px;
+            height: 200px;
+          }
+        }
+      }
+    }
+  }
+}

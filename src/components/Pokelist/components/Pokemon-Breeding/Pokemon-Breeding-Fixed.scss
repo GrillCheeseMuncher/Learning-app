@@ -1,0 +1,116 @@
+.gender-ratio-container {
+  &.one-to-one {
+    grid-template-columns: 1fr 1fr;
+  }
+  &.one-to-three {
+    grid-template-columns: 1fr 3fr;
+  }
+  &.three-to-one {
+    grid-template-columns: 3fr 1fr;
+  }
+  &.one-to-seven {
+    grid-template-columns: 1fr 7fr;
+  }
+  &.seven-to-one {
+    grid-template-columns: 7fr 1fr;
+  }
+
+  .pokemon-female {
+    background-color: #ff77dd;
+    padding: 5px;
+    width: calc(100% - 10px);
+    color: white;
+    border: 2px solid var(--darkviolet);
+    border-radius: 5px 0 0 5px;
+  }
+
+  .pokemon-male {
+    background-color: #3355ff;
+    padding: 5px;
+    color: white;
+    width: calc(100% - 10px);
+    border: 2px solid var(--darkviolet);
+    border-radius: 0 5px 5px 0;
+  }
+
+  .pokemon-one-gender {
+    padding: 5px 0;
+    width: 100%;
+    max-width: calc(100% - 10px);
+    color: white;
+    border: 2px solid var(--darkviolet);
+    border-radius: 5px;
+
+    &.female-only {
+      background-color: #ff77dd;
+    }
+    &.male-only {
+      background-color: #3355ff;
+    }
+    &.gender-unknown {
+      background-color: #302b29;
+    }
+  }
+}
+
+.single-egg-group {
+  &.monster {
+    background-color: #97724c;
+  }
+
+  &.humanshape {
+    background-color: #47b7ae;
+  }
+
+  &.water1 {
+    background-color: #6bd1f9;
+  }
+
+  &.water3 {
+    background-color: #2271b4;
+  }
+
+  &.bug {
+    background-color: #aac22a;
+  }
+
+  &.mineral {
+    background-color: #979067;
+  }
+
+  &.flying {
+    background-color: #90aff1;
+  }
+
+  &.indeterminate {
+    background-color: #9f82cc;
+  }
+
+  &.ground {
+    background-color: #e5ba65;
+  }
+
+  &.water2 {
+    background-color: #4b94ed;
+  }
+
+  &.fairy {
+    background-color: #ff9eb9;
+  }
+
+  &.ditto {
+    background-color: #b6aad5;
+  }
+
+  &.plant {
+    background-color: #82d25a;
+  }
+
+  &.dragon {
+    background-color: #5e57bf;
+  }
+
+  &.no-eggs {
+    background-color: #efcf00;
+  }
+}

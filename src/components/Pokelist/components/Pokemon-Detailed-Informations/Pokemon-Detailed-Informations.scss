@@ -1,0 +1,113 @@
+.pokemon-information-container {
+  display: grid;
+  grid-template-rows: 1fr 0.5fr;
+  gap: 10px;
+
+  .pokemon-type-information-container {
+    display: grid;
+    grid-template-rows: 0.3fr 1fr;
+    gap: 5px;
+    width: 100%;
+
+    .pokemon-type-additional-text {
+      background-color: var(--violet);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      color: var(--darkviolet);
+      font-weight: 600;
+      padding: 5px 0;
+      border-radius: 10px 10px 0 0;
+    }
+    .pokemon-type-container {
+      background-color: var(--violet);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 5px;
+      border-radius: 0 0 10px 10px;
+
+      .pokemon-type {
+        width: 100%;
+        text-align: center;
+        padding: 2.5px 10px;
+        font-size: 1.75rem;
+        margin: 0 5px;
+        border-radius: 5px;
+        border: 2px solid var(--darkviolet);
+        color: #fff;
+      }
+    }
+  }
+
+  .pokemon-all-proportions-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    width: 100%;
+    text-align: center;
+
+    .pokemon-proportions-container {
+      display: grid;
+      gap: 5px;
+      padding: 5px 5px;
+      background-color: var(--violet);
+      font-size: 2rem;
+      color: var(--darkviolet);
+      font-weight: 600;
+
+      &.height {
+        border-radius: 10px 0 0 10px;
+      }
+
+      &.weight {
+        border-radius: 0 10px 10px 0;
+      }
+
+      .pokemon-detailed-information-small-white-box {
+        border: 2px solid var(--darkviolet);
+        padding: 5px 0;
+        margin: 0 10px;
+        border-radius: 5px;
+        background-color: var(--lightviolet);
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .experience-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    width: 100%;
+    text-align: center;
+
+    .pokelist-base-stats-experience {
+      display: grid;
+      gap: 5px;
+      padding: 5px 5px;
+      background-color: var(--violet);
+      font-size: 1.75rem;
+      color: var(--darkviolet);
+      font-weight: 600;
+
+      &.exp {
+        border-radius: 10px 0 0 10px;
+      }
+
+      &.lvl {
+        border-radius: 0 10px 10px 0;
+      }
+
+      .pokemon-detailed-information-small-white-box {
+        border: 2px solid var(--darkviolet);
+        padding: 5px 0;
+        margin: 0 10px;
+        border-radius: 5px;
+        background-color: var(--lightviolet);
+        font-size: 1.5rem;
+      }
+    }
+  }
+}

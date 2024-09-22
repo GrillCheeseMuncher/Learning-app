@@ -1,0 +1,56 @@
+.pokemon-type {
+  &.normal {
+    background-color: #828282;
+  }
+  &.grass {
+    background-color: #439937;
+  }
+  &.fire {
+    background-color: #e5613e;
+  }
+  &.water {
+    background-color: #309ae2;
+  }
+  &.electric {
+    background-color: #e0bd28;
+  }
+  &.rock {
+    background-color: #aaa581;
+  }
+  &.fighting {
+    background-color: #e59121;
+  }
+  &.psychic {
+    background-color: #ea6c8d;
+  }
+  &.ghost {
+    background-color: #6f4570;
+  }
+  &.poison {
+    background-color: #9454cc;
+  }
+  &.flying {
+    background-color: #74abd1;
+  }
+  &.ground {
+    background-color: #a5733c;
+  }
+  &.dragon {
+    background-color: #576fbd;
+  }
+  &.ice {
+    background-color: #47c9c9;
+  }
+  &.bug {
+    background-color: #a0a028;
+  }
+  &.steel {
+    background-color: #6badc9;
+  }
+  &.dark {
+    background-color: #4f4747;
+  }
+  &.fairy {
+    background-color: #e28de2;
+  }
+}

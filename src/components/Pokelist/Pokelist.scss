@@ -1,0 +1,211 @@
+@import '../../styles/mixins.scss';
+
+.pokelist-items {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 5px;
+  justify-items: center;
+  background-color: var(--darkviolet);
+  padding: 16px 0px;
+  border: 2.5px solid var(--violet);
+  border-radius: 2rem;
+
+  color: var(--violet);
+  font-size: 2.5rem;
+  font-family: var(--font-primary);
+  font-weight: var(--font-primary-weight);
+
+  @include respond(tab-land) {
+    font-size: 3rem;
+    padding: 24px;
+    cursor: pointer;
+  }
+
+  &.active {
+    background-color: var(--dark);
+    color: var(--red);
+    border: 2.5px solid var(--red);
+  }
+}
+
+.pokelist-container {
+  --header-margin: 86px;
+
+  margin-top: var(--header-margin);
+  position: relative;
+  display: flex;
+  width: 100%;
+  background-color: var(--dark);
+  height: calc(100vh - var(--header-margin));
+
+  @include respond(tab-land) {
+    --header-margin: 205.75px;
+  }
+
+  .right-close-panel {
+    width: calc(100% - 2rem);
+    height: 30px;
+    font-size: 2rem;
+    margin: 10px;
+    background-color: var(--violet);
+    color: var(--darkviolet);
+    border-radius: 1rem;
+    font-weight: 600;
+    margin-bottom: 0;
+
+    @include respond(tab-land) {
+      display: none;
+    }
+  }
+
+  .pokelist-left {
+    width: 531.438px;
+    display: flex;
+    flex-direction: column;
+
+    .pokelist-grid-container {
+      position: relative;
+      overflow-y: auto;
+      display: grid;
+      margin: 0 15px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      @include respond(tab-land) {
+        width: calc(100% - 30px);
+        margin-left: 30px;
+        margin-bottom: 30px;
+      }
+
+      .pokelist-grid {
+        display: grid;
+        font-family: var(--font-primary);
+        gap: 1.5rem;
+        list-style-type: none;
+
+        @include respond(tab-land) {
+          grid-template-columns: repeat(1, 1fr);
+          gap: 3rem;
+        }
+      }
+    }
+  }
+
+  .pokelist-right {
+    flex: 1;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: calc(100% - 2rem);
+    height: calc(100% - (2rem + 86px));
+    margin: 0;
+    z-index: 2;
+    background-color: var(--darkviolet);
+    overflow-y: scroll;
+    padding: 1rem;
+    border-radius: 0;
+    border: none;
+
+    &.visible {
+      display: flex;
+    }
+
+    @include respond(tab-land) {
+      display: flex;
+      position: relative;
+      z-index: auto;
+      margin: 3rem;
+      border-radius: 2rem;
+      border: 2.5px solid var(--violet);
+      height: calc(100% - 86px);
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    .pokelist-description {
+      display: grid;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      overflow-y: scroll;
+
+      @include respond(tab-land) {
+        display: flex;
+        width: calc(100% - 2rem);
+        height: 100%;
+        left: 0.5rem;
+      }
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .welcome-pokedex {
+        display: grid;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        font-size: 5rem;
+        color: var(--violet);
+        font-weight: 600;
+      }
+
+      .pokelist-description-left-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+
+        @include respond(tab-land) {
+          width: calc(100% - 20px);
+          justify-content: flex-start;
+          width: 300px;
+        }
+
+        .pokelist-description-information {
+          margin-top: 10px;
+          display: grid;
+          gap: 10px;
+          width: 100%;
+          height: fit-content;
+          border-radius: 10px;
+        }
+      }
+
+      .pokelist-description-right-container {
+        display: grid;
+        gap: 10px;
+        width: calc(100% - 20px);
+        height: fit-content;
+        margin: 10px;
+        margin-top: 0;
+
+        @include respond(tab-land) {
+          margin: 0;
+          margin-top: 10px;
+          margin-left: 10px;
+          gap: 20px;
+        }
+
+        .pokelist-abilities-breeding-container {
+          display: grid;
+          gap: 10px;
+
+          @include respond(tab-land) {
+            grid-template-columns: 1fr 2fr;
+            gap: 20px;
+          }
+        }
+      }
+    }
+  }
+}
