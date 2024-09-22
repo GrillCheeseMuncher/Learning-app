@@ -46,6 +46,7 @@ export const Card = ({
     fetch_pokemon(pokemonId).then((res) => {
       setCardInfo(res);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleLikeClick = () => {

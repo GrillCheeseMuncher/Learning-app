@@ -64,6 +64,7 @@ const PokemonEvolution: React.FC<PokemonEvolutionProps> = ({
     }, {} as Record<number, NamedAPIResource[]>);
 
     setAltEvolution(evolutions);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pokemonSpecies]);
 
   const evolutionChain = (chain: ChainLink, results: NamedAPIResource[] = []) => {

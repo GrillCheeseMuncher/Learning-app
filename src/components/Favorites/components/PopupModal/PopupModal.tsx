@@ -45,6 +45,7 @@ export const PopupModal = ({
     fetch_pokemon_species(popupPokemonInfoId).then((res) => {
       setPopupPokemonSpeciesInfoInfo(res);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [popupPokemonInfo]);
 
   if (!popupPokemonInfo) return null;

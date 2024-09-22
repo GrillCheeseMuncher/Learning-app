@@ -2,7 +2,6 @@ import { fetch_pokedex } from './API';
 import { PokedexIndexPokemon } from './API/types';
 import './App.scss';
 import { Header } from './components/Header/Header';
-import { Login } from './components/Modals/Login/Login';
 import { useEffect, useState } from 'react';
 import { Pokelist } from './components/Pokelist/Pokelist';
 import { pokedex_mapper } from './API/mappers';

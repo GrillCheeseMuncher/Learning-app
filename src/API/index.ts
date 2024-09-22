@@ -6,7 +6,6 @@ import {
   PokemonSpecies,
   PokemonSpeciesWithEvolutionChain,
 } from './types';
-import { Pokelist } from '../components/Pokelist/Pokelist';
 
 export const fetch_pokedex = () =>
   axios
