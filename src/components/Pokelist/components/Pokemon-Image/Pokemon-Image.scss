@@ -1,0 +1,35 @@
+@import '../../../../styles/mixins.scss';
+
+.pokelist-description-image {
+  position: relative;
+  background-color: var(--violet);
+  border-radius: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include respond(tab-land) {
+    width: 300px;
+  }
+
+  .pokeimg {
+    width: 300px;
+    height: 300px;
+  }
+
+  .like-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    font-size: 3rem;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      transition: 0.2s ease-in-out;
+      transform: scale(120%);
+    }
+  }
+}

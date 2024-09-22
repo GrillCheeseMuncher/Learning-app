@@ -1,0 +1,103 @@
+@import '../../../../styles/mixins.scss';
+
+.pokelist-evolution-container {
+  display: grid;
+  grid-template-rows: 44.5px 1fr;
+  gap: 5px;
+  justify-items: center;
+  width: 100%;
+  font-weight: 600;
+
+  .pokelist-evolution-additional-text {
+    font-size: 3rem;
+    background-color: var(--violet);
+    color: var(--darkviolet);
+    text-align: center;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    padding: 5px 0;
+  }
+  .pokelist-evolution-chain-container {
+    display: grid;
+    width: 100%;
+
+    .pokelist-evolution-chain {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      padding: 10px 0;
+      background-color: var(--violet);
+      color: var(--darkviolet);
+      border-radius: 0 0 10px 10px;
+      font-size: 2rem;
+
+      .evolution-path {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        width: calc(100% - 20px);
+
+        @include respond(tab-land) {
+          flex-direction: row;
+          width: 100%;
+        }
+
+        .evolution-item {
+          display: grid;
+          justify-items: center;
+
+          .evolution-picture {
+            width: 180px;
+            height: 180px;
+            transition: 0.2s ease-in-out;
+            cursor: pointer;
+
+            @include respond(tab-land) {
+              grid-template-columns: 1fr 2fr;
+              width: 140px;
+              height: 140px;
+            }
+          }
+
+          .evolution-text {
+            transition: 0.2s ease-in-out;
+            &.current-pokemon {
+              color: var(--red);
+            }
+          }
+
+          &:hover {
+            .evolution-picture:not(.current-pokemon-picture) {
+              transform: scale(110%);
+              transition: 0.2s ease-in-out;
+              cursor: pointer;
+            }
+
+            .evolution-text:not(.current-pokemon) {
+              transition: 0.2s ease-in-out;
+              color: var(--dark);
+            }
+          }
+        }
+
+        .evolution-separator {
+          font-size: 3rem;
+          margin: 2rem 1rem;
+          width: 50px;
+          height: 50px;
+          transform: rotate(90deg);
+
+          @include respond(tab-land) {
+            grid-template-columns: 1fr 2fr;
+            width: 50px;
+            height: 50px;
+            margin: 0 1rem;
+            transform: rotate(0deg);
+          }
+        }
+      }
+    }
+  }
+}

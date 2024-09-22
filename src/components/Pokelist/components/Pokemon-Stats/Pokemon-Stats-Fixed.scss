@@ -1,0 +1,20 @@
+.stats-container-each-stat {
+  &.hp {
+    background-color: #9ee865;
+  }
+  &.attack {
+    background-color: #f5de69;
+  }
+  &.defense {
+    background-color: #f09a65;
+  }
+  &.special-attack {
+    background-color: #66d8f6;
+  }
+  &.special-defense {
+    background-color: #899eea;
+  }
+  &.speed {
+    background-color: #e46cca;
+  }
+}
