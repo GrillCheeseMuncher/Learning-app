@@ -45,7 +45,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Login /> */}
       <Header currentlistid={currentListId} handleclick={handleCurrentListIdClick} />
       {currentListId === 0 && (
         <Pokelist
