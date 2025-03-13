@@ -19,7 +19,7 @@
     background-color: #ff77dd;
     padding: 5px;
     width: calc(100% - 10px);
-    color: white;
+    color: var(--darkviolet);
     border: 2px solid var(--darkviolet);
     border-radius: 5px 0 0 5px;
   }
@@ -27,7 +27,7 @@
   .pokemon-male {
     background-color: #3355ff;
     padding: 5px;
-    color: white;
+    color: var(--darkviolet);
     width: calc(100% - 10px);
     border: 2px solid var(--darkviolet);
     border-radius: 0 5px 5px 0;
@@ -37,7 +37,7 @@
     padding: 5px 0;
     width: 100%;
     max-width: calc(100% - 10px);
-    color: white;
+    color: var(--darkviolet);
     border: 2px solid var(--darkviolet);
     border-radius: 5px;
 

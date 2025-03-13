@@ -32,7 +32,7 @@
       font-family: var(--font-title);
       font-size: 4rem;
       text-align: center;
-      color: var(--violet);
+      color: var(--font);
       font-weight: var(--font-title-weight);
 
       @include respond(tab-land) {
@@ -76,7 +76,7 @@
       font-family: var(--font-primary);
       text-align: center;
       font-size: 3rem;
-      color: var(--violet);
+      color: var(--font);
       font-weight: var(--font-primary-weight);
       cursor: pointer;
 

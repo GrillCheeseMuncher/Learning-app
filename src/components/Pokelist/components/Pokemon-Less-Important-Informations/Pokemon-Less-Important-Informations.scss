@@ -14,7 +14,7 @@
     font-size: 1.75rem;
     text-align: center;
     padding: 10px 0;
-    color: var(--darkviolet);
+    color: var(--font);
     font-weight: 600;
 
     &.shape {
@@ -41,6 +41,7 @@
       margin: 0 10px;
       border-radius: 5px;
       font-size: 1.5rem;
+      color: var(--darkviolet);
     }
 
     .pokemon-small-white-box {
@@ -52,6 +53,7 @@
       border-radius: 5px;
       background-color: var(--lightviolet);
       font-size: 1.5rem;
+      color: var(--darkviolet);
     }
   }
 }

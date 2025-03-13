@@ -79,8 +79,10 @@
 
   .cards-container {
     display: grid;
-    gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
     margin-bottom: 4rem;
+    justify-content: center;
     overflow-y: scroll;
     overflow-x: hidden;
 
@@ -90,6 +92,7 @@
 
     @include respond(tab-land) {
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      gap: 2rem;
     }
   }
 }

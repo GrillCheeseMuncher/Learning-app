@@ -104,7 +104,7 @@ const PokemonEvolution: React.FC<PokemonEvolutionProps> = ({
             </div>
             {index < evolutionPath.length - 1 && (
               <div className="evolution-separator">
-                <svg width="fit-content" height="fit-content" viewBox="0 0 24 24" fill="#4d455f">
+                <svg width="fit-content" height="fit-content" viewBox="0 0 24 24" fill="#181a1b">
                   <path d="M14.7055 18.9112C14.2784 18.7306 14 18.3052 14 17.8333V15H3C2.44772 15 2 14.5523 2 14V10C2 9.44772 2.44772 9 3 9H14V6.1667C14 5.69483 14.2784 5.26942 14.7055 5.08884C15.1326 4.90826 15.6241 5.00808 15.951 5.34174L21.6653 11.175C22.1116 11.6307 22.1116 12.3693 21.6653 12.825L15.951 18.6583C15.6241 18.9919 15.1326 19.0917 14.7055 18.9112Z" />
                 </svg>
               </div>

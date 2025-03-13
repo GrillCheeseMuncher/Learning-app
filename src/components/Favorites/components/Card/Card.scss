@@ -1,3 +1,4 @@
+@import '../../../../styles/mixins.scss';
 .card-container {
   position: relative;
   background-color: var(--darkviolet);
@@ -30,25 +31,40 @@
       justify-content: center;
       background-color: var(--violet);
       border-radius: 100rem;
-      width: 330px;
-      height: 330px;
+      width: 130px;
+      height: 130px;
+
+      @include respond(tab-land) {
+        width: 330px;
+        height: 330px;
+      }
 
       .card-image-background {
         display: flex;
         align-items: center;
         justify-content: center;
         border-radius: 100rem;
-        width: 300px;
-        height: 300px;
+        width: 100px;
+        height: 100px;
+
+        @include respond(tab-land) {
+          width: 300px;
+          height: 300px;
+        }
 
         .card-image {
           display: flex;
           align-items: center;
           justify-content: center;
           background-color: var(--violet);
-          width: 275px;
-          height: 275px;
+          width: 75px;
+          height: 75px;
           border-radius: 100rem;
+
+          @include respond(tab-land) {
+            width: 275px;
+            height: 275px;
+          }
         }
       }
     }
@@ -65,9 +81,13 @@
       width: 100%;
       font-weight: 600;
       height: 57.5px;
-      font-size: 3rem;
+      font-size: calc(3rem - 200px);
       text-align: center;
-      color: var(--darkviolet);
+      color: var(--font);
+
+      @include respond(tab-land) {
+        font-size: 3rem;
+      }
 
       .card-name {
         display: flex;

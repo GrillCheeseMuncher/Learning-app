@@ -8,7 +8,7 @@
   .pokelist-breeding-additional-text {
     font-size: 3rem;
     background-color: var(--violet);
-    color: var(--darkviolet);
+    color: var(--font);
     text-align: center;
     width: 100%;
     border-radius: 10px 10px 0 0;
@@ -27,7 +27,7 @@
       display: grid;
       gap: 10px;
       background-color: var(--violet);
-      color: var(--darkviolet);
+      color: var(--font);
       width: 100%;
       font-size: 1.75rem;
       text-align: center;
@@ -59,11 +59,12 @@
           width: 100%;
           text-align: center;
           padding: 5px 10px;
-          font-size: 2rem;
+          font-size: 1.75rem;
           margin: 0 5px;
+          font-weight: 600;
           border-radius: 5px;
           border: 2px solid var(--darkviolet);
-          color: #fff;
+          color: var(--darkviolet);
         }
       }
       .pokemon-breeding-white-box-container {
